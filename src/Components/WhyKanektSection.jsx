@@ -5,7 +5,7 @@ import {Button} from '@mui/material'
 const WhyKanektSection = () => {
   return (
     <div className='max-w-6xl mx-auto mt-10'>
-        <div style={{backgroundColor: 'black'}} className='flex justify-around items-center space-x-4'>
+        <div style={{backgroundColor: 'blue'}} className='flex justify-around items-center space-x-4'>
 
             <video className='rounded-lg w-5/12 h-96 mx-2 my-4 border border-blue-800'>
                 <source src={video2} type='video/mp4'/>

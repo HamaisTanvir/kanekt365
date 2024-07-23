@@ -9,7 +9,7 @@ const WhyKanektSection = () => {
 
             <video className='rounded-lg w-5/12 h-96 mx-2 my-4 border border-blue-800'>
                 <source src={video2} type='video/mp4'/>
-                Your browser does not support
+                Your browser does not support it
             </video>
           <div className='flex flex-col'>
             <h2 className="text-xl sm:text-3xl lg:text-lg  tracking-wide mb-4 font-semibold" style={{color: '#0773B3'}}>

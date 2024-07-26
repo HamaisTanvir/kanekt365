@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 import kanekt365Logo from '../assets/kanekt365Logo.png';
 import {X, Menu, Search} from 'lucide-react';
 import {navItems} from '../constants/index.jsx'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [mobileIconOpen, setmobileIconOpen] = useState(false);
@@ -40,14 +41,14 @@ const Navbar = () => {
                         <ul className="hidden lg:flex ml-14 space-x-8">
                             {navItems.map((item, index) =>(
                                 <li key={index} className='text-md font-semibold hover:text-blue-900'>
-                                    <a href={item.href}>{item.label}</a>
+                                    <Link to={item.href}>{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
                     <div className="hidden lg:flex justify-center space-x-1 items-center">
                         <Search className='mr-2 text-md' />
                         <a href="https://hamaistanvir.com" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4  rounded-md text-white'>login</a>
-                        <a href="https://hamaistanvir.com" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4 rounded-md text-white'>Sign Up</a>
+                        <Link to="/bitrixsignupform" style={{ backgroundColor: '#0773B3', border: 'solid 2px #0773B3' }} className='py-3 px-4 rounded-md text-white'>Sign Up</Link>
                         <a href="https://hamaistanvir.com" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-600 text-md font-semibold'>Book Demo</a>
                     </div>
                      <div className="lg:hidden md:flex flex-col justify-end">

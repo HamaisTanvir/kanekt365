@@ -3,23 +3,47 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import { useState } from 'react';
 
 const BitrixSignupForm = () => {
-  
-const steps = [
-  'BUSINESS AND STORE DETAILS',
-  'SIGNED UP',
-];
+ 
+  const steps = [
+    'BUSINESS AND STORE DETAILS',
+    'SIGNED UP',
+  ];
+
+  const [localBusinessDetails, setLocalBusinessDetails] = useState('');
+  const [OwnerEmail, setOwnerEmail] = useState('');
+  const [OwnerPhone, setOwnerPhone] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!localBusinessDetails) {
+      alert('Legal Business Details is required');
+      return;
+    }
+   
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(OwnerEmail)) {
+      alert('Please provide a valid email address');
+      return;
+    }
+
+    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+if (!phoneRegex.test(OwnerPhone)) {
+  alert('Please provide a valid phone number');
+  return;
+}
+    // Handle form submission logic here
+    console.log('Form submitted with:', { localBusinessDetails, OwnerEmail, OwnerPhone });
+  };
 
   return (
-    <form>
-      <div className="container text-center mx-auto max-w-6xl rounded-md border-2 border-gray-900/10 pb-12">
-
-          <h1 className="text-3xl font-bold leading-7 text-gray-900">Quick Service Restaurant</h1>
-          <h2 className="text-lg font-bold mt-12" style={{color: '#333333'}}>CLIENT ONBOARDING - STORE SIGN UP</h2>
+    <form onSubmit={handleSubmit}>
+          <h1 className="text-3xl text-center font-bold leading-7 text-gray-900 mt-10">Quick Service Restaurant</h1>
+          <h2 className="text-lg text-center font-bold mt-12" style={{color: '#333333'}}>CLIENT ONBOARDING - STORE SIGN UP</h2>
           <div className="block max-w-14 h-1 bg-orange-500 mx-auto my-5" style={{ background: '#f6931e'}}></div>
-          {/* <div style={{content: '', display: 'block', width: '50px', height: '3px', background: '#f6931e', 
-          margin: '10px auto'}}></div>       */}
+
         <Box className='mx-auto ' sx={{ width: '80%'}}>
           <Stepper activeStep={0} alternativeLabel>
             {steps.map((label) => (
@@ -29,496 +53,363 @@ const steps = [
             ))}
           </Stepper>
         </Box>
-       
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-            {/* <div className="sm:col-span-4">
-              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                Username
-              </label>
-              <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span>
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    placeholder="janesmith"
-                    autoComplete="username"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-            </div> */}
+        <div className="container text-center mx-auto max-w-6xl rounded-md border-2 border-gray-900/10 pb-6">
+          <div className=" grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6 pl-4 pr-4 pt-5">
 
-            {/* <div className="col-span-full">
-              <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
-                About
-              </label>
-              <div className="mt-2">
-                <textarea
-                  id="about"
-                  name="about"
-                  rows={3}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
-                />
-              </div>
-              <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
-            </div> */}
-
-            {/* <div className="col-span-full">
-              <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
-                Photo
-              </label>
-              <div className="mt-2 flex items-center gap-x-3">
-                <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
-                <button
-                  type="button"
-                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                >
-                  Change
-                </button>
-              </div>
-            </div> */}
-
-            {/* <div className="col-span-full">
-              <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
-                Cover photo
-              </label>
-              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                <div className="text-center">
-                  <PhotoIcon aria-hidden="true" className="mx-auto h-12 w-12 text-gray-300" />
-                  <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                    <label
-                      htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                    >
-                      <span>Upload a file</span>
-                      <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-                    </label>
-                    <p className="pl-1">or drag and drop</p>
-                  </div>
-                  <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                </div>
-              </div>
-            </div> */}
-            
-          </div>
-
-        <div className="border-b border-2 border-red-900 pb-12">
-          <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pl-4 pr-4">
-
-              <h1 className='text-md font-bold' style={{color: '#666'}}>Business Details</h1>
+              <h1 className='text-md text-left font-bold' style={{color: '#666', marginBottom: '-10px'}}>Business Details</h1>
           <div className="sm:col-span-2 sm:col-start-1">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="city"
-                  name="city"
+                  id="legalBusinessDetails"
+                  name="legalBusinessDetails"
                   type="text"
+                  required
                   placeholder='Legal Business Details'
-                  autoComplete="address-level2"
+                  onChange={(e) => setLocalBusinessDetails(e.target.value)}
+                  autoComplete="legal-business-details"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="region"
-                  name="region"
+                  id="AssociatedBrand"
+                  name="AssociatedBrand"
                   type="text"
                   placeholder='Associated Brand'
-                  autoComplete="address-level1"
+                  autoComplete="associated-brand"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="region"
-                  name="region"
+                  id="NoofStores"
+                  name="NoofStores"
                   type="text"
                   placeholder='No of Stores in Brand'
-                  autoComplete="address-level1"
+                  autoComplete="no-of-stores"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
-            <h1 className='text-md font-bold' style={{color: '#666'}}>Owner Information</h1>
+            <h1 className='text-md text-left font-bold' style={{color: '#666', marginBottom: '-10px'}}>Owner Information</h1>
           <div className="sm:col-span-2 sm:col-start-1">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="city"
-                  name="city"
+                  id="OwnerName"
+                  name="OwnerName"
                   type="text"
+                  required
                   placeholder="Owner's Name"
-                  autoComplete="address-level2"
+                  autoComplete="owner-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="region"
-                  name="region"
+                  id="OwnerPhone"
+                  name="OwnerPhone"
                   type="text"
                   placeholder="Owner's Phone"
-                  autoComplete="address-level1"
+                  onChange={(e) => setOwnerPhone(e.target.value)}
+                  autoComplete="owner-phone"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="region"
-                  name="region"
+                  id="OwnerEmail"
+                  name="OwnerEmail"
                   type="email"
                   placeholder="Owner's Email"
-                  autoComplete="address-level1"
+                  onChange={(e) => setOwnerEmail(e.target.value)}
+                  autoComplete="owner-email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
-
 
             <div className="sm:col-span-6">
-              <div className="mt-2">
+              <div>
                 <input
-                  id="first-name"
-                  name="first-name"
+                  id="StreetAddress"
+                  name="StreetAddress"
                   type="text"
                   placeholder='Street Address'
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <div className="mt-2">
-                <input
-                  id="last-name"
-                  name="last-name"
-                  type="text"
-                  placeholder='City'
-                  autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <div className="mt-2">
-                <input
-                  id="last-name"
-                  name="last-name"
-                  type="text"
-                  placeholder='State'
-                  autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <div className="mt-2">
-                <input
-                  id="last-name"
-                  name="last-name"
-                  type="text"
-                  placeholder='Zip'
-                  autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            
-            <h1 className='text-md font-bold' style={{color: '#666'}}>Bank Information</h1>
-          <div className="sm:col-span-3 sm:col-start-1">
-              <div className="mt-2">
-                <input
-                  id="city"
-                  name="city"
-                  type="text"
-                  placeholder="Business Name on Bank Account"
-                  autoComplete="address-level2"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-3">
-              <div className="mt-2">
-                <input
-                  id="region"
-                  name="region"
-                  type="text"
-                  placeholder="Bank Name"
-                  autoComplete="address-level1"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <div className="mt-2">
-                <input
-                  id="region"
-                  name="region"
-                  type="text"
-                  placeholder="Routing Number"
-                  autoComplete="address-level1"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-
-            <div className="sm:col-span-2">
-              <div className="mt-2">
-                <input
-                  id="first-name"
-                  name="first-name"
-                  type="text"
-                  placeholder='Account Number'
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>  
-
-            <div className="sm:col-span-2">
-              <div className="mt-2">
-                <input
-                  id="first-name"
-                  name="first-name"
-                  type="email"
-                  placeholder='Accounting Email'
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>  
-
-            <div className="sm:col-span-4">
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-3">
-              <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                Country
-              </label>
-              <div className="mt-2">
-                <select
-                  id="country"
-                  name="country"
-                  autoComplete="country-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                >
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>Mexico</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="col-span-full">
-              <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
-                Street address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="street-address"
-                  name="street-address"
-                  type="text"
                   autoComplete="street-address"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
-            <div className="sm:col-span-2 sm:col-start-1">
-              <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
-                City
-              </label>
-              <div className="mt-2">
+            <div className="sm:col-span-2">
+              <div>
                 <input
-                  id="city"
-                  name="city"
+                  id="City"
+                  name="City"
                   type="text"
-                  autoComplete="address-level2"
+                  placeholder='City'
+                  autoComplete="city"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
-                State / Province
-              </label>
-              <div className="mt-2">
+              <div>
                 <input
-                  id="region"
-                  name="region"
+                  id="State"
+                  name="State"
                   type="text"
-                  autoComplete="address-level1"
+                  placeholder='State'
+                  autoComplete="state"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
-                ZIP / Postal code
-              </label>
-              <div className="mt-2">
+              <div>
                 <input
-                  id="postal-code"
-                  name="postal-code"
+                  id="Zip"
+                  name="Zip"
                   type="text"
-                  autoComplete="postal-code"
+                  placeholder='Zip'
+                  autoComplete="zip"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            
+            <h1 className='text-md text-left font-bold' style={{color: '#666', marginBottom: '-10px'}}>Bank Information</h1>
+          <div className="sm:col-span-3 sm:col-start-1">
+              <div>
+                <input
+                  id="BusinessNameOnBank"
+                  name="BusinessNameOnBank"
+                  type="text"
+                  placeholder="Business Name on Bank Account"
+                  autoComplete="business-name-on-bank"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
-          </div>
+            <div className="sm:col-span-3">
+              <div>
+                <input
+                  id="BankName"
+                  name="BankName"
+                  type="text"
+                  placeholder="Bank Name"
+                  autoComplete="bank-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="RoutingNumber"
+                  name="RoutingNumber"
+                  type="text"
+                  placeholder="Routing Number"
+                  autoComplete="routing-number"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="AccountNumber"
+                  name="AccountNumber"
+                  type="text"
+                  placeholder='Account Number'
+                  autoComplete="account-number"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>  
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="AccountingEmail"
+                  name="AccountingEmail"
+                  type="email"
+                  placeholder='Accounting Email'
+                  autoComplete="accounting-email"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>  
+
+            <h1 className='text-md text-left font-bold' style={{color: '#666', marginBottom: '-10px'}}>Store Information</h1>
+          <div className="sm:col-span-3 sm:col-start-1">
+              <div>
+                <input
+                  id="StoresMain"
+                  name="StoresMain"
+                  type="text"
+                  placeholder="Store Main #"
+                  autoComplete="stores-main"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <div>
+                <input
+                  id="Store#Identifier"
+                  name="Store#Identifier"
+                  type="text"
+                  placeholder="Store # or Identifier"
+                  autoComplete="store-#-identifier"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <div>
+                <input
+                  id="HoursSunThurs"
+                  name="HoursSunThurs"
+                  type="text"
+                  placeholder="Hours Sun - Thurs"
+                  autoComplete="hours-sun-thurs"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <div>
+                <input
+                  id="HoursFriSat"
+                  name="HoursFriSat"
+                  type="text"
+                  placeholder='Hours Fri & Sat'
+                  autoComplete="hours-fri-sat"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>  
+
+            <div className="sm:col-span-6">
+              <div>
+                <input
+                  id="StoreStreetAddress"
+                  name="StoreStreetAddress"
+                  type="text"
+                  placeholder='Store Street Address'
+                  autoComplete="store-street-address"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>  
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="StoreCity"
+                  name="StoreCity"
+                  type="text"
+                  placeholder="Store City"
+                  autoComplete="store-city"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="StoreState"
+                  name="StoreState"
+                  type="text"
+                  placeholder="Store State"
+                  autoComplete="store-state"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="StoreZip"
+                  name="StoreZip"
+                  type="text"
+                  placeholder='Store Zip'
+                  autoComplete="store-zip"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div> 
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="ManagerName"
+                  name="ManagerName"
+                  type="text"
+                  placeholder="Manager Name"
+                  autoComplete="manager-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="ManagerEmail"
+                  name="ManagerEmail"
+                  type="email"
+                  placeholder="Manager Email"
+                  autoComplete="manager-email"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div>
+                <input
+                  id="PhoneProvider"
+                  name="PhoneProvider"
+                  type="text"
+                  placeholder='Phone Provider'
+                  autoComplete="phone-provider"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div> 
+
         </div>
 
-        {/* <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            We'll always let you know about important changes, but you pick what else you want to hear about.
-          </p>
-
-          <div className="mt-10 space-y-10">
-            <fieldset>
-              <legend className="text-sm font-semibold leading-6 text-gray-900">By Email</legend>
-              <div className="mt-6 space-y-6">
-                <div className="relative flex gap-x-3">
-                  <div className="flex h-6 items-center">
-                    <input
-                      id="comments"
-                      name="comments"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="text-sm leading-6">
-                    <label htmlFor="comments" className="font-medium text-gray-900">
-                      Comments
-                    </label>
-                    <p className="text-gray-500">Get notified when someones posts a comment on a posting.</p>
-                  </div>
-                </div>
-                <div className="relative flex gap-x-3">
-                  <div className="flex h-6 items-center">
-                    <input
-                      id="candidates"
-                      name="candidates"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="text-sm leading-6">
-                    <label htmlFor="candidates" className="font-medium text-gray-900">
-                      Candidates
-                    </label>
-                    <p className="text-gray-500">Get notified when a candidate applies for a job.</p>
-                  </div>
-                </div>
-                <div className="relative flex gap-x-3">
-                  <div className="flex h-6 items-center">
-                    <input
-                      id="offers"
-                      name="offers"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="text-sm leading-6">
-                    <label htmlFor="offers" className="font-medium text-gray-900">
-                      Offers
-                    </label>
-                    <p className="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend className="text-sm font-semibold leading-6 text-gray-900">Push Notifications</legend>
-              <p className="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p>
-              <div className="mt-6 space-y-6">
-                <div className="flex items-center gap-x-3">
-                  <input
-                    id="push-everything"
-                    name="push-notifications"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label htmlFor="push-everything" className="block text-sm font-medium leading-6 text-gray-900">
-                    Everything
-                  </label>
-                </div>
-                <div className="flex items-center gap-x-3">
-                  <input
-                    id="push-email"
-                    name="push-notifications"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label htmlFor="push-email" className="block text-sm font-medium leading-6 text-gray-900">
-                    Same as email
-                  </label>
-                </div>
-                <div className="flex items-center gap-x-3">
-                  <input
-                    id="push-nothing"
-                    name="push-notifications"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label htmlFor="push-nothing" className="block text-sm font-medium leading-6 text-gray-900">
-                    No push notifications
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </div> */}
-      </div>
-
-      <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Save
-        </button>
+          <div className='flex justify-end mr-4 mt-5'>
+            <button type='submit' style={{backgroundColor:'black', border: 'solid 2px #0773B3'}} 
+            className='py-4 px-24 rounded-md text-white'>Sign Up</button>
+           </div>
       </div>
     </form>
   )

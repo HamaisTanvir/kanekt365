@@ -155,12 +155,21 @@ export const pricingOptions = [
   },
 ];
 
-export const resourcesLinks = [
-  { href: "#", text: "Getting Started" },
-  { href: "#", text: "Documentation" },
-  { href: "#", text: "Tutorials" },
-  { href: "#", text: "API Reference" },
-  { href: "#", text: "Community Forums" },
+export const quickLinks = [
+  { href: "#", text: "Home" },
+  { href: "#", text: "Services" },
+  { href: "#", text: "Pricing" },
+  { href: "#", text: "Our Team" },
+  { href: "#", text: "Contact Us" },
+  { href: "#", text: "Affiliates" },
+];
+
+export const quickLinksRest = [
+  { href: "#", text: "E-books" },
+  { href: "#", text: "White Papers" },
+  { href: "#", text: "Press Releases" },
+  { href: "#", text: "Case Studies" },
+  { href: "#", text: "Blogs" },
 ];
 
 export const platformLinks = [

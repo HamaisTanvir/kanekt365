@@ -4,6 +4,7 @@ import TopBar from './Components/TopBar';
 import Homepage from './Components/Homepage';
 import BitrixSignupForm from './Components/BitrixSignupForm';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Footer from './Components/Footer';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/' element={<Homepage />}/>
         <Route path='/bitrixsignupform' element={<BitrixSignupForm />}/>
       </Routes>
+      <Footer />
     </Router>
   );
 }

@@ -12,6 +12,23 @@ import user4 from "../assets/profile-pictures/user4.jpg";
 import user5 from "../assets/profile-pictures/user5.jpg";
 import user6 from "../assets/profile-pictures/user6.jpg";
 
+import rezku from '../assets/rezku.png'
+import hungerRush from '../assets/hungerRush.png'
+import revel from '../assets/revel.png'
+import parSale from '../assets/parSale.png'
+import spotOn from '../assets/spotOn.png'
+import microsSimphony from '../assets/microsSimphony.png'
+import microsRes from '../assets/microsRes.png'
+import speedLine from '../assets/speedline.png'
+import focus from '../assets/focus.png'
+import foodTec from '../assets/foodTec.png'
+import prism from '../assets/prism.png'
+import linga from '../assets/linga.png'
+import xenial from '../assets/xenial.png'
+import ovvi from '../assets/ovvi.png'
+
+
+
 export const navItems = [
   { label: "HOME", href: "/" },
   { label: "SERVICES", href: "#" },
@@ -187,3 +204,20 @@ export const communityLinks = [
   { href: "#", text: "Hackathons" },
   { href: "#", text: "Jobs" },
 ];
+
+export const logos =[
+  `${rezku}`,
+  `${hungerRush}`,
+  `${revel}`,
+  `${parSale}`,
+  `${spotOn}`,
+  `${microsSimphony}`,
+  `${microsRes}`,
+  `${speedLine}`,
+  `${focus}`,
+  `${foodTec}`,
+  `${prism}`,
+  `${linga}`,
+  `${xenial}`,
+  `${ovvi}`,
+]

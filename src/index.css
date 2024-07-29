@@ -9,6 +9,16 @@
   /* color-scheme: dark; */
 }
 
+.custom-arrow {
+  color: #0773b3 !important;
+  font-size: 50px !important;
+  z-index: 1;
+}
+
+.custom-arrow::before {
+  content: none; /* Hide the default arrow */
+}
+
 /* .css-19kzrtu {
    {
     paddingleft: "-30px !important";

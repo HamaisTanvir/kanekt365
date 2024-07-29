@@ -1,5 +1,4 @@
 import React from 'react'
-// import CarouselBasicExample from './CarouselBasicExample'
 import LogoCloudSlider from './LogoCloudSlider'
 
 const Brands = () => {
@@ -11,11 +10,8 @@ const Brands = () => {
         <h1 className="text-xl sm:text-6xl text-center font-bold px-8" style={{color: '#222D35', fontSize: '33px'}}>
         KANEKT 365’S AI ORDER TAKING INTEGRATES WITH OVER 50 POS SYSTEMS
         </h1>
-        {/* <CarouselBasicExample /> */}
-       
-            <LogoCloudSlider />
-     
-        
+
+        <LogoCloudSlider />
     </div>
 
     

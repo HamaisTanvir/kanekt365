@@ -8,7 +8,7 @@ import kanekt365LogoFooter from '../assets/kanekt365LogoFooter.png'
 const Footer = () => {
   return (
     <footer className='mt-20'>
-      <div className="grid grid-cols-2 lg:grid-cols-4 text-white pt-20 gap-4" style={{backgroundColor: '#252525', 
+      <div className="grid grid-cols-1 gap-2 lg:grid-cols-4 text-white pt-20 lg:gap-4" style={{backgroundColor: '#252525', 
           backgroundImage: `url(${footerDotMap})`, 
           backgroundSize: 'auto', 
           backgroundPosition: 'center',

@@ -10,10 +10,8 @@ const Homepage = () => {
           <HeroSection />
         </div>
         <Brands />
-        <WhyKanektSection />
-        {/* <div className="mt-10">
-          <BitrixSignupForm />
-        </div> */}
+        {/* <WhyKanektSection /> */}
+  
     </div>
   )
 }

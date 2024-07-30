@@ -3,33 +3,38 @@ import {logos} from '../constants'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '../index.css'
+// import '../index.css'
+// import { ChevronRight, ChevronLeft } from 'lucide-react';
 
-const NextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-arrow`}
-      style={{ ...style, display: 'block', right: '10px', color: '#F8931F', fontSize: '30px' }}
-      onClick={onClick}
-    >
-      ▶
-    </div>
-  );
-};
+// const NextArrow = (props) => {
+//   const { style, onClick } = props;
+//   return (
+//     <div
+//       className="slick-next custom-arrow"
+//       style={{ ...style, display: 'block', right: '10px', color: '#F8931F', fontSize: '30px' }}
+//       onClick={onClick}
+//     >
+//       {/* ▶ */}
+//       <ChevronRight color="#F8931F" size={100} />
+//     </div>
+//   );
+// };
 
-const PrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-arrow`}
-      style={{ ...style, display: 'block', left: '10px', color: '#F8931F', fontSize: '30px' }}
-      onClick={onClick}
-    >
-      ◀
-    </div>
-  );
-};
+// const PrevArrow = (props) => {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={`${className} custom-arrow`}
+//       style={{ ...style, display: 'block', left: '10px', color: '#F8931F', fontSize: '30px' }}
+//       onClick={onClick}
+//     >
+//       {/* ◀ */}
+//       <ChevronLeft color="#F8931F" size={100} />
+//     </div>
+//   );
+// };
+
+
 
 const LogoCloudSlider = () => {
 
@@ -39,8 +44,8 @@ const LogoCloudSlider = () => {
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 3,
-    NextArrow: <NextArrow />,
-    PrevArrow: <PrevArrow />,
+    // NextArrow: <NextArrow />,
+    // PrevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -71,13 +76,12 @@ const LogoCloudSlider = () => {
   };
 
   return (
-    
     <div className='container mx-auto py-8 md:max-w-6xl px-8 sm:px-6'> 
       <Slider {...settings}>
         {logos.map((logo, index) =>(
           <div key={index} className='flex justify-center p-2'>
             <img 
-              style={{border: 'solid 1px #DDDDDD'}}
+              style={{border:'solid 1px #DDDDDD'}}
               key={index}
               src={logo}
               alt={`Logo ${index + 1}`}
@@ -87,6 +91,7 @@ const LogoCloudSlider = () => {
         ))}
       </Slider>
     </div>
+
           // <div className="">
         
           //     <div style={{columnGap: '15px'}} className="flex mt-10 items-center md:grid-cols-1 sm:grid-cols-7 mx-auto">
@@ -163,22 +168,7 @@ const LogoCloudSlider = () => {
           //    </div>
 
           // </div>
-          // ==================
-
-    //   <div className="overflow-x-auto whitespace-nowrap py-4">
-    //   <div className="flex space-x-4">
-    //     {logos.map((logo, index) => (
-    //       <img
-    //         style={{border: 'solid 1px #DDDDDD'}}
-    //         key={index}
-    //         src={logo}
-    //         alt={`Logo ${index + 1}`}
-    //         className=" max-h-24 w-full object-contain md:col-span-1 bg-white shadow-sm border-2 "
-    //       />
-    //     ))}
-    //   </div>
-    // </div>
-
+          //   <div className="overflow-x-auto whitespace-nowrap py-4"> </div>
         )
       }
 

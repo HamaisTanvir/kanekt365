@@ -9,15 +9,25 @@
   /* color-scheme: dark; */
 }
 
-.custom-arrow {
-  color: #0773b3 !important;
-  font-size: 50px !important;
-  z-index: 1;
+/* .slick-prev:before,
+.slick-next:before {
+  content: none; 
 }
 
-.custom-arrow::before {
-  content: none; /* Hide the default arrow */
+.slick-prev,
+.slick-next {
+  z-index: 2; 
+  color: #f8931f; 
 }
+
+.slick-prev.custom-arrow,
+.slick-next.custom-arrow {
+  color: #f8931f !important; 
+  font-size: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+} */
 
 /* .css-19kzrtu {
    {

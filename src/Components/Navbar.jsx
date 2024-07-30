@@ -49,7 +49,7 @@ const Navbar = () => {
                         <Search className='mr-2 text-md' />
                         <a href="https://hamaistanvir.com" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4  rounded-md text-white'>login</a>
                         <Link to="/bitrixsignupform" style={{ backgroundColor: '#0773B3', border: 'solid 2px #0773B3' }} className='py-3 px-4 rounded-md text-white'>Sign Up</Link>
-                        <a href="https://hamaistanvir.com" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-600 text-md font-semibold'>Book Demo</a>
+                        <a href="https://hamaistanvir.com" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 text-md font-semibold'>Book Demo</a>
                     </div>
                      <div className="lg:hidden md:flex flex-col justify-end">
                         <button onClick={toggleNabar}>

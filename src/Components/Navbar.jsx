@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const [mobileIconOpen, setmobileIconOpen] = useState(false);
 
-    const toggleNabar = () =>{
+    const toggleNavbar = () =>{
         setmobileIconOpen(!mobileIconOpen);
     }
     
@@ -38,27 +38,27 @@ const Navbar = () => {
                     <div className="flex items-center flex-shrink-0">
                         <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
                     </div>
-                        <ul className="hidden lg:flex ml-14 space-x-8">
+                        <ul className="hidden md:flex ml-14 space-x-8">
                             {navItems.map((item, index) =>(
                                 <li key={index} className='text-md font-semibold hover:text-blue-900'>
                                     <Link to={item.href}>{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
-                    <div className="hidden lg:flex justify-center space-x-1 items-center">
+                    <div className="hidden md:flex justify-center space-x-1 items-center">
                         <Search className='mr-2 text-md' />
-                        <a href="https://hamaistanvir.com" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4  rounded-md text-white'>login</a>
+                        <a href="/" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4  rounded-md text-white'>login</a>
                         <Link to="/bitrixsignupform" style={{ backgroundColor: '#0773B3', border: 'solid 2px #0773B3' }} className='py-3 px-4 rounded-md text-white'>Sign Up</Link>
-                        <a href="https://hamaistanvir.com" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 text-md font-semibold'>Book Demo</a>
+                        <a href="/" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 text-md font-semibold'>Book Demo</a>
                     </div>
-                     <div className="lg:hidden md:flex flex-col justify-end">
-                        <button onClick={toggleNabar}>
+                     <div className="md:hidden sm:flex flex-col justify-end">
+                        <button onClick={toggleNavbar}>
                             {mobileIconOpen ? <X /> : <Menu />}
                         </button>
                      </div>
                 </div>
                      {mobileIconOpen && (
-                         <div className="fixed right-0 z-20 w-full p-12 flex flex-col bg-white justify-center items-center lg:hidden">
+                         <div className="fixed md:hidden right-0 z-20 w-full p-12 flex flex-col bg-white justify-center items-center">
                             <ul>
                                 {navItems.map((item, index) => (
                                     <li key={index} className='py-4 text-md text-center font-semibold hover:text-blue-900'>
@@ -67,9 +67,9 @@ const Navbar = () => {
                                 ))}
                             </ul>
                             <div className="flex space-x-3 mt-4">
-                                <a href="https://hamaistanvir.com" className='py-3 px-4 rounded-md bg-blue-800 text-white'>login</a>
-                                <a href="https://hamaistanvir.com" className=' py-3 px-4 rounded-md bg-blue-800 text-white'>Sign Up</a>
-                                {/* <a href="https://hamaistanvir.com" className='py-3 px-4 rounded-md border-2 border-orange-500 text-orange-600 text-md font-semibold'>Book Demo</a> */}
+                                <a href="/" className='py-3 px-4 rounded-md bg-blue-800 text-white'>login</a>
+                                <a href="/" className=' py-3 px-4 rounded-md bg-blue-800 text-white'>Sign Up</a>
+                                {/* <a href="/" className='py-3 px-4 rounded-md border-2 border-orange-500 text-orange-600 text-md font-semibold'>Book Demo</a> */}
                             </div>
                         </div>
                         

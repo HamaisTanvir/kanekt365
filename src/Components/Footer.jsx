@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import footerDotMap from '../assets/footerDotMap.png'
 import kanekt365LogoFooter from '../assets/kanekt365LogoFooter.png'
 import { SocialIcon } from 'react-social-icons'
-// import SettingsPhoneOutlinedIcon, DraftsOutlinedIcon, LocationOnOutlinedIcon  from '@mui/icons-material/SettingsPhoneOutlined';
 import { useState } from 'react'
 import { Send } from '@mui/icons-material'
 import { Divider } from '@mui/material'
+// import SettingsPhoneOutlinedIcon, DraftsOutlinedIcon, LocationOnOutlinedIcon  from '@mui/icons-material/SettingsPhoneOutlined';
 
 const Footer = () => {
 
@@ -94,7 +94,6 @@ const Footer = () => {
         </div>
 
         <div className='flex space-x-4 mr-0 ml-0 pl-0 pr-0'>
-
           <svg className='pt-1' version="1.0" xmlns="http://www.w3.org/2000/svg"
             width="37.000000pt" height="37.000000pt" viewBox="0 0 512.000000 512.000000"
             preserveAspectRatio="xMidYMid meet">
@@ -132,7 +131,6 @@ const Footer = () => {
         </div>
 
         <div className='flex space-x-4 md:space-x-2'>
-
           <svg className='pt-1' version="1.0" xmlns="http://www.w3.org/2000/svg"
             width="37.000000pt" height="37.000000pt" viewBox="0 0 512.000000 512.000000"
             preserveAspectRatio="xMidYMid meet">

@@ -11,6 +11,7 @@ const Homepage = () => {
         </div>
         <Brands />
         <WhyKanektSection />
+        
   
     </div>
   )

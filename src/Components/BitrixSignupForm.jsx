@@ -12,30 +12,96 @@ const BitrixSignupForm = () => {
     'SIGNED UP',
   ];
 
-  const [localBusinessDetails, setLocalBusinessDetails] = useState('');
+  const [legalBusinessDetails, setLegalBusinessDetails] = useState('');
+  const [legalBusinessDetailsError, setLegalBusinessDetailsError] = useState('');
+  const [OwnerName, setOwnerName] = useState('');
+  const [ownerNameError, setOwnerNameError] = useState('');
   const [OwnerEmail, setOwnerEmail] = useState('');
+  const [ownerEmailError, setOwnerEmailError] = useState('');
   const [OwnerPhone, setOwnerPhone] = useState('');
+  const [ownerPhoneError, setOwnerPhoneError] = useState('');
+  const [RoutingNumber, setRoutingNumber] = useState(''); 
+  const [routingNumberError, setRoutingNumberError] = useState('');
+  const [AccountNumber, setAccountNumber] = useState(''); 
+  const [accountNumberError, setAccountNumberError] = useState('');
+  const [ManagerEmail, setManagerEmail] = useState(''); 
+  const [managerEmailError, setManagerEmailError] = useState('');
+  const [PhoneProvider, setPhoneProvider] = useState(''); 
+  const [phoneProviderError, setPhoneProviderError] = useState(''); 
+  // const [message, setMessage] = useState('');
+  // const [Error, setError] = useState(false);
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!localBusinessDetails) {
-      alert('Legal Business Details is required');
-      return;
+    let valid = true;
+
+    if (!legalBusinessDetails) {
+      setLegalBusinessDetailsError('Legal Business Details is required');
+      valid = false;
+    } else {
+      setLegalBusinessDetailsError('');
+    }
+
+    if (!OwnerName) {
+      setOwnerEmailError('Owner Name Details is required');
+      valid = false;
+    } else {
+      setOwnerNameError('');
     }
    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(OwnerEmail)) {
-      alert('Please provide a valid email address');
-      return;
+      if (!emailRegex.test(OwnerEmail)) {
+        setOwnerEmailError('Please provide a valid email address');
+        valid = false;
+    } else {
+      setOwnerEmailError('');
     }
 
     const phoneRegex = /^\+?[1-9]\d{1,14}$/;
-if (!phoneRegex.test(OwnerPhone)) {
-  alert('Please provide a valid phone number');
-  return;
-}
+      if (!phoneRegex.test(OwnerPhone)) {
+        setOwnerPhoneError('Please provide a valid phone number');
+        valid = false;
+    } else {
+      setOwnerPhoneError('');
+    }
+
+    if(!RoutingNumber){
+      setRoutingNumberError('Routing Number is required');
+      valid = false;
+    } else{
+      setRoutingNumberError('');
+    }
+
+    const accountNumberRegex = /^\d{13}$/;
+    if (!accountNumberRegex.test(AccountNumber)) {
+      setAccountNumberError('Account Number must be exactly 13 digits');
+      valid = false;
+    } else {
+      setAccountNumberError('');
+    }
+
+    if (!emailRegex.test(ManagerEmail)) {
+      setManagerEmailError('Please provide a valid email address');
+      valid = false;
+    } else {
+      setManagerEmailError('');
+    }
+
+    if (!phoneRegex.test(PhoneProvider)) {
+      setPhoneProviderError('Please provide a valid phone number');
+      valid = false;
+    } else {
+      setPhoneProviderError('');
+    }
+  
+    if(!valid) {
+      return;
+    }
+
     // Handle form submission logic here
-    console.log('Form submitted with:', { localBusinessDetails, OwnerEmail, OwnerPhone });
+    console.log('Form submitted with:', { legalBusinessDetails, OwnerName, OwnerEmail, OwnerPhone });  //......... ???
   };
 
   return (
@@ -64,14 +130,20 @@ if (!phoneRegex.test(OwnerPhone)) {
                   id="legalBusinessDetails"
                   name="legalBusinessDetails"
                   type="text"
-                  required
+                  value={legalBusinessDetails}
                   placeholder='Legal Business Details'
-                  onChange={(e) => setLocalBusinessDetails(e.target.value)}
+                  onChange={(e) => setLegalBusinessDetails(e.target.value)}
                   autoComplete="legal-business-details"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {legalBusinessDetailsError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {legalBusinessDetailsError}
+                </p>
+              )}
             </div>
+          
 
             <div className="sm:col-span-2">
               <div>
@@ -106,12 +178,18 @@ if (!phoneRegex.test(OwnerPhone)) {
                   id="OwnerName"
                   name="OwnerName"
                   type="text"
-                  required
+                  value={OwnerName}
+                  onChange={(e) => setOwnerName(e.target.value)}
                   placeholder="Owner's Name"
                   autoComplete="owner-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {ownerNameError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {ownerNameError}
+                </p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
@@ -121,11 +199,17 @@ if (!phoneRegex.test(OwnerPhone)) {
                   name="OwnerPhone"
                   type="text"
                   placeholder="Owner's Phone"
+                  value={OwnerPhone}
                   onChange={(e) => setOwnerPhone(e.target.value)}
                   autoComplete="owner-phone"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {ownerPhoneError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {ownerPhoneError}
+                </p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
@@ -135,11 +219,17 @@ if (!phoneRegex.test(OwnerPhone)) {
                   name="OwnerEmail"
                   type="email"
                   placeholder="Owner's Email"
+                  value={OwnerEmail}
                   onChange={(e) => setOwnerEmail(e.target.value)}
                   autoComplete="owner-email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {ownerEmailError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {ownerEmailError}
+                </p>
+              )}
             </div>
 
             <div className="sm:col-span-6">
@@ -227,11 +317,18 @@ if (!phoneRegex.test(OwnerPhone)) {
                   id="RoutingNumber"
                   name="RoutingNumber"
                   type="text"
+                  value={RoutingNumber}
+                  onChange={(e) => setRoutingNumber(e.target.value)}
                   placeholder="Routing Number"
                   autoComplete="routing-number"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {routingNumberError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {routingNumberError}
+                </p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
@@ -240,11 +337,18 @@ if (!phoneRegex.test(OwnerPhone)) {
                   id="AccountNumber"
                   name="AccountNumber"
                   type="text"
+                  value={AccountNumber}
+                  onChange={(e) => setAccountNumber(e.target.value)}
                   placeholder='Account Number'
                   autoComplete="account-number"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {accountNumberError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {accountNumberError}
+                </p>
+              )}
             </div>  
 
             <div className="sm:col-span-2">
@@ -384,11 +488,18 @@ if (!phoneRegex.test(OwnerPhone)) {
                   id="ManagerEmail"
                   name="ManagerEmail"
                   type="email"
+                  value={ManagerEmail}
+                  onChange={(e) => setManagerEmail(e.target.value)}
                   placeholder="Manager Email"
                   autoComplete="manager-email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {managerEmailError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {managerEmailError}
+                </p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
@@ -397,11 +508,18 @@ if (!phoneRegex.test(OwnerPhone)) {
                   id="PhoneProvider"
                   name="PhoneProvider"
                   type="text"
+                  value={PhoneProvider}
+                  onChange={(e) => setPhoneProvider(e.target.value)}
                   placeholder='Phone Provider'
                   autoComplete="phone-provider"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+              {phoneProviderError && (
+                <p className="mt-2 text-sm text-start text-red-600">
+                  {phoneProviderError}
+                </p>
+              )}
             </div> 
 
         </div>

@@ -6,6 +6,7 @@ import { Modal, Box, IconButton } from '@mui/material';
 import { PlayCircleOutline } from '@mui/icons-material';
 import Close from '@mui/icons-material/Close';
 import AccordionUsage from './MTabs';
+import { Link } from 'react-router-dom';
 
 const WhyKanektSection = () => {
 
@@ -95,25 +96,29 @@ const WhyKanektSection = () => {
             </Box>
           </Modal>
 
-          <div className='flex flex-col md:max-w-xl mt-3'>
-              <h2 className="text-sm md:text-base tracking-wide mt-4 md:mt-0 mb-2 font-semibold" style={{color: '#0773B3'}}>
+        <div className='flex flex-col md:max-w-xl mt-3'>
+            <h2 className="text-sm md:text-base tracking-wide mt-4 md:mt-0 mb-2 font-semibold" style={{color: '#0773B3'}}>
               Restaurant Call Center Services
-              </h2>
-              <h1 className="text-2xl md:text-3xl font-bold md:max-w-2xl mb-3 md:mb-0" style={{color: '#222D35'}}>
+            </h2>
+            <h1 className="text-2xl md:text-3xl font-bold md:max-w-2xl mb-3 md:mb-0" style={{color: '#222D35'}}>
               WHY KANEKT 365’S CALL CENTER?
-              </h1>
-          <div className='hidden md:block text-center mt-5 '>
-             <BasicTabs />
-             <div className='mt-10 text-start'>
-                <a href="/" style={{backgroundColor:'#0773B3'}} className='py-4 px-3 border-none rounded-md text-white text-sm font-semibold'>POS INTEGRATION</a>
-             </div>
-          </div>
-          <div className='md:hidden p-1'>
-            <AccordionUsage />
-            <div className='mt-10 text-start'>
-                <a href="/" style={{backgroundColor:'#0773B3'}} className='py-4 px-3 border-none rounded-md text-white text-sm font-semibold'>POS INTEGRATION</a>
-             </div>
-          </div>
+            </h1>
+
+            <div className='hidden md:block text-center mt-5 '>
+              <BasicTabs />
+              <div className='mt-10 text-start'>
+                  <Link to='/' className='py-4 px-3 border-none rounded-md
+                  text-white text-sm font-semibold bg-[#0773B3] hover:bg-[#282D47]'>BOOK DEMO - NOW!</Link>
+              </div>
+            </div>
+
+            <div className='md:hidden p-1'>
+              <AccordionUsage />
+              <div className='mt-10 text-start'>
+              <Link to='/' className='py-4 px-3 border-none rounded-md
+                  text-white text-sm font-semibold bg-[#0773B3] hover:bg-[#282D47]'>BOOK DEMO - NOW!</Link>
+              </div>
+            </div>
         </div>
       </div>  
     </div>

@@ -1,10 +1,12 @@
 import React from 'react'
 import kanekt365CounterBg from '../assets/kanekt365CounterBg.jpg'
+import { Divider } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const CounterSection = () => {
     const Icon0 = () =>(
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width="37.000000pt" height="37.000000pt" viewBox="0 0 512.000000 512.000000"
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" className='max-w-12'
+        viewBox="0 0 512.000000 512.000000"
         preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
         fill="#0773b3" stroke="none">
@@ -74,8 +76,8 @@ const CounterSection = () => {
       </svg>
     )
     const Icon1 = () =>(
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width="37.000000pt" height="37.000000pt" viewBox="0 0 512.000000 512.000000"
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" className='max-w-12'
+        viewBox="0 0 512.000000 512.000000"
         preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
         fill="#0773b3" stroke="none"> 
@@ -144,8 +146,8 @@ const CounterSection = () => {
       </svg>
     )
     const Icon2 = () =>(
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width="37.000000pt" height="37.000000pt" viewBox="0 0 512.000000 512.000000"
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" className='max-w-12'
+        viewBox="0 0 512.000000 512.000000"
         preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
         fill="#0773b3" stroke="none">
@@ -236,8 +238,8 @@ const CounterSection = () => {
       </svg>
     )
     const Icon3 = () =>(
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width="50.000000pt" height="50.000000pt" viewBox="0 0 512.000000 512.000000"
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" className='max-w-12 md:max-w-14'
+        viewBox="0 0 512.000000 512.000000"
         preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
         fill="#0773b3" stroke="none">
@@ -307,8 +309,8 @@ const CounterSection = () => {
       </svg>
     )
     const Icon4 = () =>(
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width="50.000000pt" height="50.000000pt" viewBox="0 0 512.000000 512.000000"
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" className='max-w-12 md:max-w-14'
+        viewBox="0 0 512.000000 512.000000"
         preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
         fill="#0773b3" stroke="none">
@@ -373,6 +375,7 @@ const CounterSection = () => {
         </g>
       </svg>
     )
+
     const stats = [
         { id: 1, name: 'CURRENT PIZZA LOCATIONS', value: '1,100+', icon: <Icon0 /> },
         { id: 2, name: 'CALLS PER MONTH', value: '1,000,000+', icon: <Icon1 /> },
@@ -380,14 +383,29 @@ const CounterSection = () => {
         { id: 3, name: 'PROFESSIONAL CALL AGENTS', value: '950+', icon: <Icon3 /> },
         { id: 3, name: 'CALL CENTERS FOR REDUNDANCY', value: '4+', icon: <Icon4 /> },
       ]
+
+      const style = {
+        py: 0,
+        
+        height: '1px',
+        width: '80%',
+        backgroundColor: '#7a7777',
+        // maxWidth: 360,
+        // border: '1px solid #9e9c9c',
+        margin: 'auto',
+        borderRadius: 1,
+        border: 'none',
+      };
+
   return (
-    <div className='py-24 sm:py-32 text-white'
+    <div className='py-20 pt-10 text-white mt-12'
     style={{
         backgroundImage: `url(${kanekt365CounterBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'}}>
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+    <div className="mx-auto max-w-7xl px-10 mb-10">
       <dl className="grid grid-cols-1 gap-x-2 gap-y-16 text-center md:grid-cols-5">
         {stats.map((stat) => (
           <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -395,13 +413,40 @@ const CounterSection = () => {
               {stat.icon} 
               {stat.name}
             </dt>
-            <dd className="order-first text-5xl font-semibold tracking-tight">
+            <dd className="order-first font-semibold tracking-tight" style={{fontSize: '44px'}}>
               {stat.value}
             </dd> 
           </div>
         ))}
       </dl>
     </div>
+        <Divider sx={style} /> 
+
+       <div className='hidden md:block'>
+          <h2 className="text-2xl mt-4 font-normal text-white text-center">
+            Watch the Kanekt 365 overview video that demonstrates
+          </h2>
+
+          <h1 className="mt-1 font-bold text-white text-center" style={{fontSize: '42px'}} >
+            ALL OUR SERVICES AND SEE YOUR ROI
+          </h1>
+       </div>
+
+        <div className='md:hidden'>
+          <h1 className="text-3xl mt-4 font-semibold text-white text-center pt-5 p-2">
+            Watch the Kanekt 365 overview video to learn about everything our call centers have to offer and see your ROI!
+          </h1>
+        </div>
+
+        <div className='mt-5 flex items-center justify-center'>
+          <Link to='/' className='py-4 px-3 border-none rounded-md text-white text-sm font-semibold
+            bg-[#0773B3] hover:bg-[#282D47]'>
+                <svg className='w-6 h-6 mr-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                  <path d="M504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zM224 352c-6.9 0-13.7-2.3-19.5-7C192 335 192 319.4 200.5 310l96-96c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-96 96C237.7 349.7 230.9 352 224 352z"/>
+                </svg>
+              NO RISK FREE TRIAL
+          </Link>
+        </div>
   </div>
   )
 }

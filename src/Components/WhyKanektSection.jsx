@@ -115,8 +115,9 @@ const WhyKanektSection = () => {
             <div className='md:hidden p-1'>
               <AccordionUsage />
               <div className='mt-10 text-start'>
-              <Link to='/' className='py-4 px-3 border-none rounded-md
-                  text-white text-sm font-semibold bg-[#0773B3] hover:bg-[#282D47]'>BOOK DEMO - NOW!</Link>
+                <Link to='/' className='py-4 px-3 border-none rounded-md
+                  text-white text-sm font-semibold bg-[#0773B3] hover:bg-[#282D47]'>BOOK DEMO - NOW!
+                </Link>
               </div>
             </div>
         </div>

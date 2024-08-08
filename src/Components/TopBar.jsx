@@ -1,6 +1,6 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
-import {Phone, Mail} from 'lucide-react'
+// import {Phone, Mail} from 'lucide-react'
 // import {Phone, Mail, Facebook, Twitter, Linkedin, Youtube, Instagram} from 'lucide-react'
 
 const TopBar = () => {

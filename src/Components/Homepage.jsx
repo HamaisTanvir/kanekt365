@@ -3,6 +3,7 @@ import HeroSection from './HeroSection';
 import Brands from './Brands';
 import WhyKanektSection from './WhyKanektSection'
 import CounterSection from './CounterSection';
+import RestaurantAutomation from './RestaurantAutomation'
 
 const Homepage = () => {
   return (
@@ -13,6 +14,7 @@ const Homepage = () => {
         <Brands />
         <WhyKanektSection />
         <CounterSection />
+        <RestaurantAutomation />
         
   
     </div>

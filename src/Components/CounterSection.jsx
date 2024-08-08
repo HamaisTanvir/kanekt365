@@ -2,6 +2,7 @@ import React from 'react'
 import kanekt365CounterBg from '../assets/kanekt365CounterBg.jpg'
 import { Divider } from '@mui/material'
 import { Link } from 'react-router-dom'
+import CountUp from 'react-countup'
 
 const CounterSection = () => {
     const Icon0 = () =>(
@@ -377,11 +378,11 @@ const CounterSection = () => {
     )
 
     const stats = [
-        { id: 1, name: 'CURRENT PIZZA LOCATIONS', value: '1,100+', icon: <Icon0 /> },
-        { id: 2, name: 'CALLS PER MONTH', value: '1,000,000+', icon: <Icon1 /> },
-        { id: 3, name: 'ORDERS PER WEEK', value: '231,000+', icon: <Icon2 /> },
-        { id: 3, name: 'PROFESSIONAL CALL AGENTS', value: '950+', icon: <Icon3 /> },
-        { id: 3, name: 'CALL CENTERS FOR REDUNDANCY', value: '4+', icon: <Icon4 /> },
+        { id: 1, name: 'CURRENT PIZZA LOCATIONS', value: 1100, icon: <Icon0 /> },
+        { id: 2, name: 'CALLS PER MONTH', value: 1000000, icon: <Icon1 /> },
+        { id: 3, name: 'ORDERS PER WEEK', value: 231000, icon: <Icon2 /> },
+        { id: 4, name: 'PROFESSIONAL CALL AGENTS', value: 950, icon: <Icon3 /> },
+        { id: 5, name: 'CALL CENTERS FOR REDUNDANCY', value: 4, icon: <Icon4 /> },
       ]
 
       const style = {
@@ -405,21 +406,21 @@ const CounterSection = () => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'}}>
 
-    <div className="mx-auto max-w-7xl px-10 mb-10">
-      <dl className="grid grid-cols-1 gap-x-2 gap-y-16 text-center md:grid-cols-5">
-        {stats.map((stat) => (
-          <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
-            <dt className="text-base tracking-tight text-left font-semibold leading-7 gap-x-4 flex items-center justify-center flex-nowrap">
-              {stat.icon} 
-              {stat.name}
-            </dt>
-            <dd className="order-first font-semibold tracking-tight" style={{fontSize: '44px'}}>
-              {stat.value}
-            </dd> 
-          </div>
-        ))}
-      </dl>
-    </div>
+      <div className="mx-auto max-w-7xl px-10 mb-10">
+        <dl className="grid grid-cols-1 gap-x-2 gap-y-16 text-center md:grid-cols-5">
+          {stats.map((stat) => (
+            <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base text-left font-semibold leading-7 gap-x-4 flex items-center justify-center flex-nowrap">
+                {stat.icon} 
+                {stat.name}
+              </dt>
+              <dd className="order-first font-semibold tracking-tight" style={{fontSize: '44px'}}>
+                <CountUp end={stat.value} duration={2} separator="," suffix="+" />
+              </dd> 
+            </div>
+          ))}
+        </dl>
+      </div>
         <Divider sx={style} /> 
 
        <div className='hidden md:block'>
@@ -439,11 +440,11 @@ const CounterSection = () => {
         </div>
 
         <div className='mt-5 flex items-center justify-center'>
-          <Link to='/' className='py-4 px-3 border-none rounded-md text-white text-sm font-semibold
-            bg-[#0773B3] hover:bg-[#282D47]'>
-                <svg className='w-6 h-6 mr-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-                  <path d="M504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zM224 352c-6.9 0-13.7-2.3-19.5-7C192 335 192 319.4 200.5 310l96-96c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-96 96C237.7 349.7 230.9 352 224 352z"/>
-                </svg>
+          <Link to='/' className='flex items-center py-4 px-3 border-none rounded-md text-white text-sm font-semibold
+            bg-[#0773B3] hover:bg-[#282D47] transition duration-500'>
+               <svg className='h-4 w-4 mr-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/>
+               </svg>
               NO RISK FREE TRIAL
           </Link>
         </div>

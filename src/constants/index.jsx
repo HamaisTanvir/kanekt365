@@ -31,7 +31,7 @@ import ovvi from '../assets/ovvi.png'
 
 export const navItems = [
   { label: "HOME", href: "/" },
-  { label: "SERVICES", href: "#" },
+  { label: "SEVICES", href: "#" },
   { label: "PRICING", href: "#" },
   { label: "OUR TEAM", href: "#" },
   { label: "CONTACT US", href: "#" },

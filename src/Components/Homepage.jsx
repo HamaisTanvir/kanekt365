@@ -4,6 +4,8 @@ import Brands from './Brands';
 import WhyKanektSection from './WhyKanektSection'
 import CounterSection from './CounterSection';
 import RestaurantAutomation from './RestaurantAutomation'
+import CustomerSatisfaction from './CustomerSatisfaction';
+import Kanekt365Help from './Kanekt365Help';
 
 const Homepage = () => {
   return (
@@ -15,6 +17,8 @@ const Homepage = () => {
         <WhyKanektSection />
         <CounterSection />
         <RestaurantAutomation />
+        <CustomerSatisfaction />
+        <Kanekt365Help />
         
   
     </div>

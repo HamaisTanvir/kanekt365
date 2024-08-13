@@ -172,6 +172,22 @@ export const pricingOptions = [
   },
 ];
 
+export const platformLinks = [
+  { href: "#", text: "Features" },
+  { href: "#", text: "Supported Devices" },
+  { href: "#", text: "System Requirements" },
+  { href: "#", text: "Downloads" },
+  { href: "#", text: "Release Notes" },
+];
+
+export const communityLinks = [
+  { href: "#", text: "Events" },
+  { href: "#", text: "Meetups" },
+  { href: "#", text: "Conferences" },
+  { href: "#", text: "Hackathons" },
+  { href: "#", text: "Jobs" },
+];
+
 export const quickLinks = [
   { href: "#", text: "Home" },
   { href: "#", text: "Services" },
@@ -187,22 +203,6 @@ export const quickLinksRest = [
   { href: "#", text: "Press Releases" },
   { href: "#", text: "Case Studies" },
   { href: "#", text: "Blogs" },
-];
-
-export const platformLinks = [
-  { href: "#", text: "Features" },
-  { href: "#", text: "Supported Devices" },
-  { href: "#", text: "System Requirements" },
-  { href: "#", text: "Downloads" },
-  { href: "#", text: "Release Notes" },
-];
-
-export const communityLinks = [
-  { href: "#", text: "Events" },
-  { href: "#", text: "Meetups" },
-  { href: "#", text: "Conferences" },
-  { href: "#", text: "Hackathons" },
-  { href: "#", text: "Jobs" },
 ];
 
 export const logos =[
@@ -293,7 +293,6 @@ export const cardsSettings = {
     },
   ],
 };
-
 
 const Icon1 = () => (
   <svg version="1.0" xmlns="http://www.w3.org/2000/svg "
@@ -558,4 +557,19 @@ export const cData = [
     href: '#', icon: <Icon2 />},
   {id: 3, title: 'Spanish Language Ordering', content: 'Increase your marketing with Spanish speaking agents.',
     href: '#', icon: <Icon3 />},
+]
+
+export const cardsData = [
+  {id: 1, title: 'NCREASE AVERAGE TICKET VALUE FOR YOUR QSR', content1: 'Call center agents are trained to upsell on every order', 
+    content2: 'QSRs average ticket increases', content3: 'Call center agents are incentivized to increase sales'},
+  {id: 2, title: 'REDUCE LABOR COSTS WITH RESTAURANT AUTOMATION', content1: 'Call center services reduce the number of staff needed onsite',
+    content2: 'Accurate orders decreases manual labor', content3: 'Restaurant automation reduces repetitive tasks'},
+  {id: 3, title: 'INCREASE TOTAL TRANSACTIONS FOR YOUR QSR', content1: 'Call center agents and AI handle calls faster',
+    content2: 'Call center agents are incentivized to increase daily sales', content3: ''},
+  {id: 4, title: 'RESTAURANT AUTOMATION IMPROVES CUSTOMER SATISFACTION', content1: 'Calls are taken quickly with almost no wait time',
+    content2: 'Predictive order taking helps customers choose their meals', content3:'Accurate orders increases customer loyalty'},
+  {id: 5, title: 'INCREASE QSR EMPLOYEE PRODUCTIVITY', content1: 'Employees do not need to multitask, they focus on meal prep',
+    content2: 'There is a reduced noise level with no phones ringing', content3:'QSR employees are less stressed'},
+  {id: 6, title: 'REDUCE EMPLOYEE TURNOVER AT YOUR QSR', content1: 'Less stressed employees have a longer tenure',
+    content2: 'Employees can be trained more quickly and easily'},
 ]

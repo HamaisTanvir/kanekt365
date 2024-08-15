@@ -2,8 +2,6 @@ import React from 'react'
 import {cardsSettings, cData} from '../constants'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// import CardActions from '@mui/material/CardActions';
-// import Typography from '@mui/material/Typography';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -38,71 +36,7 @@ const RestaurantAutomation = () => {
             </Card>
               </div>
             ))}
-            {/* <Card sx={{ maxWidth: 350, boxShadow: "0 4px 12px 0 rgba(0,0,0,.06)" }}>
-              <CardContent>
 
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Word of the Day
-                </Typography>
-                <Typography variant="h5" component="div">
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  adjective
-                </Typography>
-                <Typography variant="body2">
-                  well meaning and kindly.
-                  <br />
-                  {'"a benevolent smile"'}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card> */}
-          
-            {/* <Card sx={{ maxWidth: 350, boxShadow: "0 4px 12px 0 rgba(0,0,0,.06)" }}>
-              <CardContent sx={{textAlign: 'start'}}>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Word of the Day
-                </Typography>
-                <Typography variant="h5" component="div">
-                  be{bull}nev{bull}o{bull}lent
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  adjective
-                </Typography>
-                <Typography variant="body2">
-                  well meaning and kindly.
-                  <br />
-                  {'"a benevolent smile"'}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
-          
-            <Card sx={{ maxWidth: 350, boxShadow: "0 4px 12px 0 rgba(0,0,0,.06)" }}>
-              <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Word of the Day
-                </Typography>
-                <Typography variant="h5" component="div">
-                  be{bull}nev{bull}o{bull}lent
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  adjective
-                </Typography>
-                <Typography variant="body2">
-                  well meaning and kindly.
-                  <br />
-                  {'"a benevolent smile"'}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card> */}
           </Slider>
       </div>
       

@@ -5,25 +5,27 @@ import kanekt365Logo from '../assets/kanekt365Logo.png';
 import {X, Menu, Search} from 'lucide-react';
 import {navItems} from '../constants/index.jsx'
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
 const Navbar = () => {
-    // const [kanektData, setKanektData] = useState([]);
+    const [kanektData, setKanektData] = useState([]);
 
-    // useEffect(()=>{
-    //     axios.get('https://kanekt365.com/wp-json/wp/v2/pages?status=publish')
-    //     .then(res => {
-    //         setKanektData(res.data);
-    //         const data = res.data
-    //         console.log(data);
-    //     })
+    useEffect(()=>{
+        // axios.get('https://cors-anywhere.herokuapp.com/https://ck.getmobile.pk/api/pages')
+        axios.get('https://ck.getmobile.pk/api/pages')
+        .then(res => {
+            setKanektData(res.data);
+            const data = res.data
+            console.log(data);
+        })
         // fetch('https://kanekt365.com/wp-json/wp/v2/pages?status=publish')
         // .then(res => res.json())
         // .then(data => {
         //     setKanektData(data);
         // })
-    //     .catch(err => console.error(err));
-    // }, []);
+
+        .catch(err => console.error(err));
+    }, []);
 
     // const hiddenTitles = [
     //     "Bitrix Signup Stores",
@@ -63,26 +65,28 @@ const Navbar = () => {
                     <div className="flex items-center flex-shrink-0">
                         <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
                     </div>
-                        <ul className="hidden md:flex ml-14 space-x-8">
+                        {/* <ul className="hidden md:flex ml-14 space-x-8">
                             {navItems.map((item, index) =>(
                                 <li key={index} className='text-md font-semibold hover:text-blue-900'>
                                     <Link to={item.href}>{item.label}</Link>
                                 </li>
                             ))}
+                        </ul> */}
+                        <ul className="hidden md:flex ml-14 space-x-8">
+                        {kanektData.map((data) =>(
+                                <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
+                                    {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
+                                   <h1> {data.title} </h1>
+                                   <h2>{data.id}</h2>
+                                </li>
+                            ))}
                         </ul>
-                        {/* <ul className="hidden md:flex ml-14 space-x-8">
-                        {kanektData.map((data) =>( */}
                                 {/* below 2 lines are alternative approach:- */}
-                            {/* data.title.rendered !== "Bitrix Signup Stores" && 
+                            {/* data.title.rendered !== "Bitrix Signup Stores" &&   <->
                             .filter((data) => !hiddenTitles.includes(data.title.rendered)) */}
                             
                              {/* !hiddenTitles.includes(data.title.rendered) && (
-                                <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
-                                    <Link to={data.slug}>{data.title.rendered}</Link>
-                                </li>
-                             )
-                        ))}
-                        </ul> */}
+                              ) <-- */} 
                     <div className="hidden md:flex justify-center space-x-1 items-center">
                         <Search className='mr-2 text-md' />
                         <a href="/" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4  rounded-md text-white'>login</a>

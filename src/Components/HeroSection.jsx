@@ -12,9 +12,9 @@ const HeroSection = () => {
         <h2 className="text-xl sm:text-3xl lg:text-xl text-center tracking-wide mb-8 font-semibold" style={{color: '#0773B3'}}>
         Increase your QSR's ROI and Reduce Expenses with
         </h2>
-        <h1 className="text-3xl sm:text-6xl md:text-6xl text-center tracking-wide font-bold px-8">
+        <h2 className="text-3xl sm:text-6xl md:text-6xl text-center tracking-wide font-bold px-8">
         Kanekt 365’s <span style={{color: '#F8931F'}}> Restaurant </span> Automation
-        </h1>
+        </h2>
         <a href="https://hamaistanvir.com" style={{backgroundColor: '#F8931F'}} className='px-5 py-2 mt-8 text-white text-lg font-semibold rounded-md'>Schedule Demo</a>
     </div>
       
@@ -30,9 +30,9 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <h1 className="text-2xl font-semibold mb-4 mr-4 md:mt-0 mt-20 text-center" style={{color: '#0773B3'}}>
+      <h2 className="text-xl font-semibold mb-4 mr-4 md:mt-0 mt-20 text-center" style={{color: '#0773B3'}}>
           Never Put Another Customer On Hold.
-        </h1>
+        </h2>
 
         <div className="flex flex-col mt-10 justify-center text-center space-y-10 px-8 md:space-y-0 md:flex-row md:space-x-28 md:px-32 md:mb-20 ">
           <div className="flex flex-col justify-center">

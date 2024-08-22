@@ -97,15 +97,17 @@ const WhyKanektSection = () => {
           </Modal>
 
         <div className='flex flex-col md:max-w-xl mt-3'>
-            <h2 className="text-sm md:text-base tracking-wide mt-4 md:mt-0 mb-2 font-semibold" style={{color: '#0773B3'}}>
+            <h2 className="text-sm md:text-base tracking-wide mt-4 mb-2 ml-3 md:m-0 font-semibold" style={{color: '#0773B3'}}>
               Restaurant Call Center Services
             </h2>
-            <h1 className="text-2xl md:text-3xl font-bold md:max-w-2xl mb-3 md:mb-0" style={{color: '#222D35'}}>
+            <h1 className="text-3xl md:text-4xl font-bold md:max-w-2xl mb-3 ml-3 md:m-0" style={{color: '#222D35'}}>
               WHY KANEKT 365’S CALL CENTER?
             </h1>
 
             <div className='hidden md:block text-center mt-5 '>
+              
               <BasicTabs />
+
               <div className='mt-10 text-start'>
                   <Link to='/' className='py-4 px-3 border-none rounded-md
                   text-white text-sm font-semibold bg-[#0773B3] hover:bg-[#282D47]'>BOOK DEMO - NOW!</Link>

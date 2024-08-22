@@ -61,6 +61,10 @@ const BasicTabs = () => {
         }}>
           <Tab label="WHO WE ARE" {...a11yProps(0)}  
           sx={{ backgroundColor: value === 0 ? '#f6f6f6' : '', fontWeight: 'bold', color: '#282d47',
+            fontFamily: 'Barlow Condensed, sans-serif', fontSize: '18px',  
+            '&.Mui-selected': {
+                color: '#282d47', // Ensure color remains orange when selected
+             },
             '&:focus': {
               backgroundColor: value === 0 ? '#f6f6f6' : '', fontWeight: 'bold', color: '#282d47'
             },
@@ -68,6 +72,7 @@ const BasicTabs = () => {
           />
           <Tab label="CUSTOMER SERVICES" {...a11yProps(1)} 
           sx={{ backgroundColor: value === 1 ? '#f6f6f6' : '', fontWeight: 'bold', color: '#282d47',
+            fontFamily: 'Barlow Condensed, sans-serif', fontSize: '18px',
             '&:focus': {
               backgroundColor: value === 1 ? '#f6f6f6' : '', fontWeight: 'bold', color: '#282d47'
             },
@@ -75,6 +80,7 @@ const BasicTabs = () => {
           />
           <Tab label="TOP QUALITY PIZZA" {...a11yProps(2)} 
           sx={{ backgroundColor: value === 2 ? '#f6f6f6' : '', fontWeight: 'bold', color: '#282d47',
+            fontFamily: 'Barlow Condensed, sans-serif', fontSize: '18px',
             '&:focus': {
               backgroundColor: value === 2 ? '#f6f6f6' : '', fontWeight: 'bold', color: '#282d47'
             },

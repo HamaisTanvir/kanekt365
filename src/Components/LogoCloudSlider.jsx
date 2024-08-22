@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { logosSettings } from '../constants';
+import { Link } from 'react-router-dom';
 // import '../index.css'
 // import { ChevronRight, ChevronLeft } from 'lucide-react';
 
@@ -54,6 +55,19 @@ const LogoCloudSlider = () => {
           </div>
         ))}
       </Slider>
+
+        <div className='flex flex-col items-center mt-12'>
+          <Link to='#' className='text-sm text-[#282d47] mb-12'>
+            Explore our full list of supported POS providers &gt;
+          </Link>
+
+          <Link to='/' className='flex py-4 px-3 border-none rounded-md text-white text-sm font-semibold
+              bg-[#0773B3] hover:bg-[#282D47] transition duration-500'>
+                POS INTEGRATION
+            </Link>
+        </div>
+      
+
     </div>
 
           // <div className="">

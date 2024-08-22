@@ -6,8 +6,8 @@ import CardContent from '@mui/material/CardContent';
 const Kanekt365Help = () => {
 
   return (
-    <div className='mt-6 md:mt-10 pb-10'>
-        <h1 className="text-2xl md:text-3xl text-center font-bold px-1 md:px-8 md:pb-12" style={{color: '#222D35'}}>
+    <div className='mt-6 md:mt-10 pb-2'>
+        <h1 className="text-3xl md:text-4xl items-center text-center font-bold py-6 bg-[#f6f6f6] text-[#222D35]">
         Here’s How Kanekt 365 Can Help
         </h1>
 
@@ -34,8 +34,8 @@ const Kanekt365Help = () => {
                   
                   <CardContent>
                 <dt className='flex flex-col mx-4 pt-4 text-left space-y-2'>
-                  <h1 className='text-sm font-bold'>{data.title}</h1>
-                  <li className='text-sm pt-4'>{data.content1}</li>
+                  <h1 className='text-xl leading-6 font-semibold'>{data.title}</h1>
+                  <li className='text-sm leading-6 pt-4'>{data.content1}</li>
                   <li className='text-sm'>{data.content2}</li>
                   {data.content3 && <li className='text-sm'>{data.content3}</li>}
                 </dt>

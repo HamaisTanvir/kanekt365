@@ -410,12 +410,18 @@ const CounterSection = () => {
         <dl className="grid grid-cols-1 gap-x-2 gap-y-16 text-center md:grid-cols-5">
           {stats.map((stat) => (
             <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
+
               <dt className="text-base text-left font-semibold leading-7 gap-x-4 flex items-center justify-center flex-nowrap">
                 {stat.icon} 
                 {stat.name}
               </dt>
-              <dd className="order-first font-semibold tracking-tight" style={{fontSize: '44px'}}>
-                <CountUp end={stat.value} duration={2} separator="," suffix="+" />
+
+              <dd className="order-first tracking-tight text-[48px] font-bold">
+
+                <div style={{ fontFamily: 'Barlow Condensed, sans-serif'}}>
+                  <CountUp end={stat.value} duration={2} separator="," suffix="+" />
+                </div>
+
               </dd> 
             </div>
           ))}

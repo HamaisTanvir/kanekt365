@@ -23,11 +23,13 @@ export default function AccordionUsage() {
           aria-controls="panel1-content"
           id="panel1-header"
           sx={{
-            backgroundColor: expanded === 'panel1' ? '#f6f6f6' : '', fontWeight: '600',
+            backgroundColor: expanded === 'panel1' ? '#f6f6f6' : '', 
             color: expanded === 'panel1' ? '#000' : '#282d47',
+            fontFamily: 'Barlow Condensed, sans-serif', fontSize: '20px',  fontWeight: '700',
             '&:focus': {
-              backgroundColor: expanded === 'panel1' ? '#f6f6f6' : '', fontWeight: '600',
+              backgroundColor: expanded === 'panel1' ? '#f6f6f6' : '', 
               color: expanded === 'panel1' ? '#000' : '#282d47',
+              fontWeight: '700',
             },
           }}
         >
@@ -48,11 +50,13 @@ export default function AccordionUsage() {
           aria-controls="panel2-content"
           id="panel2-header"
           sx={{
-            backgroundColor: expanded === 'panel2' ? '#f6f6f6' : '', fontWeight: '600',
+            backgroundColor: expanded === 'panel2' ? '#f6f6f6' : '',
             color: expanded === 'panel2' ? '#000' : '#282d47',
+            fontFamily: 'Barlow Condensed, sans-serif', fontSize: '20px',  fontWeight: '700',
             '&:focus': {
-              backgroundColor: expanded === 'panel2' ? '#f6f6f6' : '', fontWeight: '600',
+              backgroundColor: expanded === 'panel2' ? '#f6f6f6' : '', 
               color: expanded === 'panel2' ? '#000' : '#282d47',
+              fontWeight: '700',
             },
           }}
         >
@@ -73,11 +77,13 @@ export default function AccordionUsage() {
           aria-controls="panel2-content"
           id="panel2-header"
           sx={{
-            backgroundColor: expanded === 'panel3' ? '#f6f6f6' : '', fontWeight: '600',
+            backgroundColor: expanded === 'panel3' ? '#f6f6f6' : '', 
             color: expanded === 'panel3' ? '#000' : '#282d47',
+            fontFamily: 'Barlow Condensed, sans-serif', fontSize: '20px',  fontWeight: '700',
             '&:focus': {
-              backgroundColor: expanded === 'panel3' ? '#f6f6f6' : '', fontWeight: '600',
+              backgroundColor: expanded === 'panel3' ? '#f6f6f6' : '', 
               color: expanded === 'panel3' ? '#000' : '#282d47',
+              fontWeight: '700',
             },
           }}
         >

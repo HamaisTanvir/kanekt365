@@ -18,6 +18,10 @@ module.exports ={
   
   theme: {
     extend: {
+      // fontFamily: {
+      //   'sans': ['Poppins', 'sans-serif'],
+      //   'barlow': ['Barlow Condensed', 'sans-serif'],
+      // },
       animation: {
         // 'loop-scroll': 'loop-scroll 10s linear infinite',
         'border-slide': 'borderSlide 1s ease-in-out forwards',

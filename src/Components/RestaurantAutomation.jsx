@@ -14,7 +14,7 @@ const RestaurantAutomation = () => {
         <h2 className="text-md sm:text-sm md:text-lg text-center tracking-wide font-semibold" style={{color: '#0773B3'}}>
             What we do
         </h2>
-        <h1 className="text-2xl md:text-3xl text-center font-bold px-1 md:px-8 md:pb-12" style={{color: '#222D35'}}>
+        <h1 className="text-3xl md:text-4xl text-center font-bold px-1 md:px-8 md:pb-12" style={{color: '#222D35'}}>
             OUR RESTAURANT AUTOMATION
         </h1>
 
@@ -27,7 +27,9 @@ const RestaurantAutomation = () => {
                   <CardContent>
                 <dt className='flex items-center mx-2 gap-x-4 py-3 text-xl text-left font-bold leading-6'>
                   {data.icon}
-                  <Link to={data.href}>{data.title} </Link>
+                  <Link style={{fontFamily: 'Barlow Condensed, sans-serif'}} className='text-[26px] leading-7
+                     hover:text-[#0773b3]' 
+                    to={data.href}>{data.title} </Link>
                 </dt>
                 <dd className='my-4 text-left'>
                   <Link to={data.href}>{data.content} </Link>

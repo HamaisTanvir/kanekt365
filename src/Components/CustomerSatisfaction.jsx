@@ -78,7 +78,7 @@ const CustomerSatisfaction = () => {
               style={{color: '#0773B3'}}>
               Benefits of A Restaurant Call Center
             </h2>
-            <h1 className="text-2xl md:text-3xl font-bold mb-3 px-6 md:px-0" style={{color: '#222D35'}}>
+            <h1 className="text-3xl md:text-4xl font-bold mb-3 px-6 md:px-0" style={{color: '#222D35'}}>
               IMPROVE CUSTOMER SATISFACTION
             </h1>
             <p className='text-sm leading-6 pt-10 md:max-w-xl px-6 md:px-0 md:pr-8' style={{color: '#282d47'}}>

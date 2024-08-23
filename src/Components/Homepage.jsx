@@ -7,6 +7,8 @@ import RestaurantAutomation from './RestaurantAutomation'
 import CustomerSatisfaction from './CustomerSatisfaction';
 import Kanekt365Help from './Kanekt365Help';
 import Kanekt365Process from './Kanekt365Process';
+import ROICalculator from './ROICalculator';
+import Blogs from './Blogs';
 
 const Homepage = () => {
   return (
@@ -21,7 +23,8 @@ const Homepage = () => {
         <CustomerSatisfaction />
         <Kanekt365Help />
         <Kanekt365Process />
-        
+        <ROICalculator />
+        <Blogs />
   
     </div>
   )

@@ -89,9 +89,15 @@ const Navbar = () => {
                               ) <-- */} 
                     <div className="hidden md:flex justify-center space-x-1 items-center">
                         <Search className='mr-2 text-md' />
-                        <a href="/" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} className='py-3 px-4  rounded-md text-white'>login</a>
-                        <Link to="/bitrixsignupform" style={{ backgroundColor: '#0773B3', border: 'solid 2px #0773B3' }} className='py-3 px-4 rounded-md text-white'>Sign Up</Link>
-                        <a href="/" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 text-md font-semibold'>Book Demo</a>
+                        <Link to="/blogs" style={{backgroundColor:'#0773B3', border: 'solid 2px #0773B3'}} 
+                            className='py-3 px-4  rounded-md text-white'>login
+                        </Link>
+                        <Link to="/bitrixsignupform" style={{ backgroundColor: '#0773B3', border: 'solid 2px #0773B3' }} 
+                            className='py-3 px-4 rounded-md text-white'>Sign Up
+                        </Link>
+                        <a href="/" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 
+                            text-md font-semibold'>Book Demo
+                        </a>
                     </div>
                      <div className="md:hidden sm:flex flex-col justify-end">
                         <button onClick={toggleNavbar}>

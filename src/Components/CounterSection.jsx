@@ -454,7 +454,7 @@ const CounterSection = () => {
               NO RISK FREE TRIAL
           </Link>
         </div>
-  </div>
+    </div>
   )
 }
 

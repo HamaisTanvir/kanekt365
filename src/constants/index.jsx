@@ -31,6 +31,7 @@ import summerOrdering from '../assets/summerOrdering.png'
 import kanektBlog from '../assets/kanektBlog.png'
 import aprilShowers from '../assets/aprilShowers.jpeg'
 import evaluateChoices from '../assets/evaluateChoices.jpg'
+import BilingualCall from '../assets/BilingualCall.png'
 
 export const navItems = [
   { label: "HOME", href: "/" },
@@ -947,39 +948,38 @@ export const blogPosts = [
   },
 ];
 
+export const IconRead = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" strokeWidth='36' width="16px" fill="#821246" stroke='#821246'>
+    <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
+  </svg>
+)
+
 export const blogsMainPosts = [
   {
-    title: "Summer Ordering Excellence",
-    image: `${summerOrdering}`,
-    date: '12-12-2019',
-    comments: 'Comments (0)',
-    iconD: <IconDate />,
-    iconC: <IconComment />
+    title: "Adding a Bilingual Call Center",
+    image: `${BilingualCall}`,
+    text: 'Read More',
+    icon: <IconRead />
+    // iconD: <IconDate />,
     // description: "This is the first blog post.",
     // image: "https://via.placeholder.com/300"
   },
   {
-    title: "Olympic Games 2024: Transform Your QSR Sales and ROI",
-    image: `${kanektBlog}`,
-    date: '32-02-2022',
-    comments: 'Comments (0)',
-    iconD: <IconDate />,
-    iconC: <IconComment />
-  },
-  {
     title: "April Showers of Call Center Productivity",
     image: `${aprilShowers}`,
-    date: '02-03-2021',
-    comments: 'Comments (0)',
-    iconD: <IconDate />,
-    iconC: <IconComment />
+    text: 'Read More',
+    icon: <IconRead />
   },
   {
-    title: "Call Center Options, How to Evaluate Your Choices",
-    image: `${evaluateChoices}`,
-    date: '22-11-2024',
-    comments: 'Comments (0)',
-    iconD: <IconDate />,
-    iconC: <IconComment />
+    title: "Summer Ordering Excellence",
+    image: `${summerOrdering}`,
+    text: 'Read More',
+    icon: <IconRead />
+  },
+  {
+    title: "Olympic Games 2024: Transform Your QSR Sales and ROI",
+    image: `${kanektBlog}`,
+    text: 'Read More',
+    icon: <IconRead />   
   },
 ];

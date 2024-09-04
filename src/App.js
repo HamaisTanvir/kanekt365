@@ -6,6 +6,8 @@ import BitrixSignupForm from './Components/BitrixSignupForm';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from './Components/Footer';
 import BlogsMain from './Pages/BlogsMain';
+import BlogsInner from './Pages/BlogsInner';
+import { blogsMainPosts } from './constants';
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Homepage />}/>
         <Route path='/blogs' element={<BlogsMain />}/>
+        <Route path='/:slug' element={<BlogsInner blogs ={blogsMainPosts}/>}/>  
         <Route path='/bitrixsignupform' element={<BitrixSignupForm />}/>
       </Routes>
       <Footer />

@@ -63,7 +63,9 @@ const Navbar = () => {
 
                 <div className="flex justify-between items-center">
                     <div className="flex items-center flex-shrink-0">
-                        <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
+                        <Link to='/'>
+                            <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
+                        </Link>
                     </div>
                         {/* <ul className="hidden md:flex ml-14 space-x-8">
                             {navItems.map((item, index) =>(

@@ -12,7 +12,7 @@ const Blogs = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // autoplay: true, 
+    autoplay: true, 
     autoplaySpeed: 3000, 
     responsive: [
       {
@@ -39,7 +39,7 @@ const Blogs = () => {
         <Slider {...settings} className='max-w-6xl px-8 mt-10 mx-auto'>
         {blogPosts.map((post, index) => (
         <div key={index} className="p-1">
-          <div className="border-2 border-gray-100 p-2 max-h-96 bg-white rounded-lg overflow-hidden 
+          <div className="border-2 border-gray-100 p-2 h-[430px] bg-white rounded-lg overflow-hidden 
             hover:shadow-lg transition duration-500 ease-out">
             <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg"/>
 

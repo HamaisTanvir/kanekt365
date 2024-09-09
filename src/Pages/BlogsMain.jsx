@@ -57,6 +57,7 @@ const BlogsMain = () => {
         <div key={index} className="px-4 py-5">
           <div className="relative border-[1px] border-[#dee4e9] h-[400px] pl-6 bg-white rounded-r-none rounded-3xl overflow-hidden 
             hover:shadow-lg transition duration-500 ease-out flex flex-col">
+              
                 <div className='mt-5 block absolute top-48 left-[0px] w-[3px] h-[26px] bg-[#0773b3]'>
                 </div>
               <img src={mainPost.image} alt={mainPost.title} className="w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover"/>

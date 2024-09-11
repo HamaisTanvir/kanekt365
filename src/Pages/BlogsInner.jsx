@@ -8,8 +8,7 @@ import { useState, useEffect } from 'react'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
-const BlogsInner = ({blogs}) => {
-   
+const BlogsInner = ({blogs, blogsMainPosts}) => {
 
     const [randomPosts, setRandomPosts] = useState([]);
 
@@ -68,7 +67,7 @@ const BlogsInner = ({blogs}) => {
            </div>
     
               
-        <div className='flex space-between gap-1 max-w-full pl-20 pt-[100px]'>
+        <div className='flex space-between gap-0 max-w-full pl-20 pt-[100px]'>
             <div className='flex flex-col mx-auto max-w-3xl'>
 
             <div className='bg-[#fff] shadow-xl shadow-slate-100'>
@@ -117,7 +116,7 @@ const BlogsInner = ({blogs}) => {
                     <KeyboardArrowLeftIcon sx={{backgroundColor: '#0773b3', color: 'white', borderRadius: '30px', 
                     width: '60px', height: '60px', p: '10px', transition: '0.3s ease-out',
                     '&:hover': {
-                        backgroundColor: '#282D47', // Color change on hover
+                        backgroundColor: '#282D47',
                       },
                       }} /> </a>
                     <a href="https://kanekt365.com/efficiency-in-call-ordering-for-qsrs/" target='blank'>
@@ -130,7 +129,7 @@ const BlogsInner = ({blogs}) => {
                         <KeyboardArrowRightIcon sx={{backgroundColor: '#0773b3', color: 'white', borderRadius: '30px', 
                     width: '60px', height: '60px', p: '10px', transition: '0.3s ease-out',
                     '&:hover': {
-                        backgroundColor: '#282D47', // Color change on hover
+                        backgroundColor: '#282D47', 
                       },
                       }} /> </a>
                 </div>
@@ -159,13 +158,447 @@ const BlogsInner = ({blogs}) => {
                 ))}
             </div>
 
+        </div>
+
+
+        <div>
+
+            <div className="w-80 h-[1150px] px-6 mr-24 bg-[#f6f6f6] rounded-lg p-4">
+                <h1 className='text-[24px] font-[700] text-[#222d35] leading-[24px]'>Categories</h1>
+                
+                <div className='relative flex items-center mt-4'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Agent Training</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[14px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  5 
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Analysis</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-3 bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  10
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Article</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[10.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  24
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Business</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  32
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Business Solutions</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[15px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  7
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Call Center</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  14
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>customer service</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  27
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Customer Support</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[14.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  9
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Expo</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[14.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  2
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Finance</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[15px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  7
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>marketing</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[14px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  5
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>News</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  29
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Order Taking</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-3 bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  13
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Outsourcing</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[14px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  4
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Pizza</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[10.4px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  49
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>POS Integration</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[15.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  1
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Press Releases</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  14
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Social</h2> 
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  26
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Technology</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[11.6px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  10
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className= 'flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>trade show</h2>   
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[14.5px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                    >  2
+                    </div>
+                </div>
+                <div className='relative flex items-center mt-[5px]'> 
+                    <Link to={''} className='flex-1'>
+                        <h2 className="p-2 ml-2 bg-[#fff] md:ml-0 rounded border-none text-[15px] font-[600] text-[#282d47] hover:text-[#0773b3] transition duration-300">
+                        <span className='px-2 text-[20px] text-[#0773b3] items-center'>&#x2022;</span>Uncategorized</h2>
+                    </Link>
+                    <div className="absolute right-0 top-0 bottom-0 text-white text-[12px] font-[700] p-[10.9px] bg-[#0773b3] rounded rounded-tl-none rounded-bl-none"
+                        >  28
+                    </div>
+                </div>
+            
+            </div>
+
+            <div className="w-80 h-[1250px] px-6 mr-24 bg-[#f6f6f6] rounded-lg p-4 mt-20">
+                <h1 className='text-[24px] font-[700] text-[#222d35] leading-[24px]'>Tags</h1>
+                
+                <div className='flex mt-4 space-x-3'> 
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        2020</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        AI</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        AICallCenter</h2>
+                    </Link>
+                </div>
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        artificialintelligence</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        BPO</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        CallAgents</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        callcenter</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Call Center</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Call Center Services</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Change</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Customer Service</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Customer Service</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        experts</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        expo</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        expobags</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Inbound call center services</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        internationalpizzaexpo</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        loyaltyprogram</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Medical center</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Order Taking</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Outsourcing</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Personalization</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Pizza</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        PizzaExpo</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        PizzaIndustry</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Pizza Industry Call Center</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        pizzaorder</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        PizzaRestaurant</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Productivity</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        QSR</h2>
+                    </Link>
+                </div>
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        QSRcallcenter</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        QSR Customers</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        QSRIndustry</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        QSRstaffing</h2>
+                    </Link>
+                </div>  
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Restaurant</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Restaurant Industry</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Restaurants</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        ROI</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Sales</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Staffing</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        telemarketing service</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Telemarketing services</h2>
+                    </Link>
+                </div> 
+                <div className='flex mt-2 space-x-3'>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        TicketSales</h2>
+                    </Link>
+                    <Link to={''} className= ''>
+                        <h2 className="p-2 px-3 bg-[#fff] rounded border-none text-[13px] font-[600] text-[#282d47] hover:bg-[#0773b3] hover:text-[#fff] transition duration-300">
+                        Upselling</h2>
+                    </Link>
+                </div> 
+                
+
+
+            </div>
 
         </div>
-           
-           
-            <div className="w-96 px-6 mr-8">
-                
-            </div>
+
+
         </div>
     </div>
   )

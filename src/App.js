@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 import BlogsMain from './Pages/BlogsMain';
 import BlogsInner from './Pages/BlogsInner';
 import { blogsMainPosts } from './constants';
+import EBooksMain from './Pages/EBooksMain';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/' element={<Homepage />}/>
         <Route path='/blogs' element={<BlogsMain />}/>
         <Route path='/:slug' element={<BlogsInner blogs ={blogsMainPosts}/>}/>  
+        <Route path= '/kanekt-resources' element= {<EBooksMain />}/>
         <Route path='/bitrixsignupform' element={<BitrixSignupForm />}/>
       </Routes>
       <Footer />

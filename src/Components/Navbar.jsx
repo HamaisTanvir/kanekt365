@@ -97,7 +97,7 @@ const Navbar = () => {
                         <Link to="/bitrixsignupform" style={{ backgroundColor: '#0773B3', border: 'solid 2px #0773B3' }} 
                             className='py-3 px-4 rounded-md text-white'>Sign Up
                         </Link>
-                        <a href="/" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 
+                        <a href="/kanekt-resources?type=e-books" className='py-3 px-4 border-2 rounded-md border-orange-500 text-orange-500 
                             text-md font-semibold'>Book Demo
                         </a>
                     </div>

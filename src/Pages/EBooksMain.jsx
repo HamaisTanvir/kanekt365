@@ -78,7 +78,7 @@ const EBooksMain = () => {
                     <div className='mt-5 block absolute top-48 left-[0px] w-[3px] h-[26px] bg-[#0773b3]'>
                     </div>
                       <img src={mainBook.image} alt={mainBook.title} className="w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover"/>
-                  <Link to={`/${generateSlug(mainBook.title)}`} >
+                  <Link to={`/resources/${generateSlug(mainBook.title)}/?kkt_pagesource=e-books`} >
                     <h1 className="p-6 text-[20px] text-[#0773b3] font-bold text-left leading-7">
                         {mainBook.title}
                     </h1>

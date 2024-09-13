@@ -9,6 +9,7 @@ import BlogsMain from './Pages/BlogsMain';
 import BlogsInner from './Pages/BlogsInner';
 import { blogsMainPosts } from './constants';
 import EBooksMain from './Pages/EBooksMain';
+import EBooksInner from './Pages/EBooksInner';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/blogs' element={<BlogsMain />}/>
         <Route path='/:slug' element={<BlogsInner blogs ={blogsMainPosts}/>}/>  
         <Route path= '/kanekt-resources' element= {<EBooksMain />}/>
+        <Route path= '/resources/:slug' element={<EBooksInner />}/>
         <Route path='/bitrixsignupform' element={<BitrixSignupForm />}/>
       </Routes>
       <Footer />

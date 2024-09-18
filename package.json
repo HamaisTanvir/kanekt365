@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "dev": "react-scripts start"
   },
-  "proxy": "https://test.kanekt365.com/",
+  "proxy": "https://kanekt365.vercel.app/",
   "eslintConfig": {
     "extends": [
       "react-app",

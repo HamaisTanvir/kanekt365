@@ -27,12 +27,11 @@ const Navbar = () => {
         .catch(err => console.error('errorr:', err));
     }, []);
 
-    // const hiddenTitles = [
-    //     "Bitrix Signup Stores",
-    //     "Sign up stores",
-    //     "Bitrix Signup Store",
-    //     "Bitrix Signup Upload New"
-    //   ];
+    const hiddenTitles = [
+        "Demo",
+        "Sign Up",
+        "Blog",
+      ];
 
     const [mobileIconOpen, setMobileIconOpen] = useState(false);
 
@@ -67,21 +66,17 @@ const Navbar = () => {
                             <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
                         </Link>
                     </div>
-                        {/* <ul className="hidden md:flex ml-14 space-x-8">
-                            {navItems.map((item, index) =>(
-                                <li key={index} className='text-md font-semibold hover:text-blue-900'>
-                                    <Link to={item.href}>{item.label}</Link>
-                                </li>
-                            ))}
-                        </ul> */}
+        
                         <ul className="hidden md:flex ml-14 space-x-8">
                         {kanektData.map((data) =>(
+                        !hiddenTitles.includes(data.title) && (
                                 <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
                                    <Link to={data.slug}><h2>{data.title}</h2></Link>
                                    <h2>{data.id}</h2>
                                 </li>
-                            ))}
+                            )
+                            ))} 
                         </ul>
                                 {/* below 2 lines are alternative approach:- */}
                             {/* data.title.rendered !== "Bitrix Signup Stores" &&   <->

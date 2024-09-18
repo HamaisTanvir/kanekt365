@@ -12,7 +12,7 @@ const Navbar = () => {
     const [kanektData, setKanektData] = useState([]);
 
     useEffect(()=>{
-        axios.get('baseUrl')
+        axios.get(baseUrl)
         .then(res => {
             setKanektData(res.data);
             const data = res.data

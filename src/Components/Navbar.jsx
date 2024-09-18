@@ -8,12 +8,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Navbar = () => {
+    const baseUrl = 'https://test.kanekt365.com/api/pages/all';
     const [kanektData, setKanektData] = useState([]);
 
     useEffect(()=>{
-        // axios.get('https://cors-anywhere.herokuapp.com/https://ck.getmobile.pk/api/pages')
-        // axios.get('https://ck.getmobile.pk/api/pages')
-        axios.get('https://test.kanekt365.com/api/pages/all')
+        axios.get('baseUrl')
         .then(res => {
             setKanektData(res.data);
             const data = res.data

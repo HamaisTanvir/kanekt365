@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "dev": "react-scripts start"
   },
-  "proxy": "https://ck.getmobile.pk",
+  "proxy": "https://test.kanekt365.com/",
   "eslintConfig": {
     "extends": [
       "react-app",

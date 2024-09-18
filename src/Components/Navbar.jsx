@@ -79,7 +79,7 @@ const Navbar = () => {
                         {kanektData.map((data) =>(
                                 <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
-                                   <h1> {data.title} </h1>
+                                   <Link to={kanektData.slug}><h2>{data.title}</h2></Link>
                                    <h2>{data.id}</h2>
                                 </li>
                             ))}

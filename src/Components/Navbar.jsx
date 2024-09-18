@@ -13,7 +13,7 @@ const Navbar = () => {
     useEffect(()=>{
         // axios.get('https://cors-anywhere.herokuapp.com/https://ck.getmobile.pk/api/pages')
         // axios.get('https://ck.getmobile.pk/api/pages')
-        axios.get('https://test.kanekt365.com/api/pages/66e835458167b2b8ace6de98')
+        axios.get('https://test.kanekt365.com/api/pages/all')
         .then(res => {
             setKanektData(res.data);
             const data = res.data
@@ -25,7 +25,7 @@ const Navbar = () => {
         //     setKanektData(data);
         // })
 
-        .catch(err => console.error(err));
+        .catch(err => console.error('errorr:', err));
     }, []);
 
     // const hiddenTitles = [

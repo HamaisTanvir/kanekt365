@@ -69,16 +69,16 @@ const Navbar = () => {
                     </div>
         
                         <ul className="hidden md:flex ml-14 space-x-8">
-                        <LazyLoad height={200} offset={100}>
                         {kanektData.map((data) =>(
-                        data.isMenu && (
+                            data.isMenu && (
+                            <LazyLoad height={200} offset={100}>
                                 <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
                                    <Link to={data.slug}><h2 className='text-[14px] font-[700]'>{data.title}</h2></Link>
                                 </li>
+                        </LazyLoad>
                             )
                             ))} 
-                        </LazyLoad>
                         </ul>
                                 {/* below 2 lines are alternative approach:- */}
                             {/* data.title.rendered !== "Bitrix Signup Stores" &&   <->

@@ -6,6 +6,7 @@ import {X, Menu, Search} from 'lucide-react';
 import {navItems} from '../constants/index.jsx'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import LazyLoad from 'react-lazyload';
 
 const Navbar = () => {
     const baseUrl = 'https://test.kanekt365.com/api/pages/all';
@@ -27,11 +28,11 @@ const Navbar = () => {
         .catch(err => console.error('errorr:', err));
     }, []);
 
-    const hiddenTitles = [
-        "Demo",
-        "Sign Up",
-        "Blog",
-      ];
+    // const hiddenTitles = [
+    //     "Demo",
+    //     "Sign Up",
+    //     "Blog",
+    //   ];
 
     const [mobileIconOpen, setMobileIconOpen] = useState(false);
 
@@ -68,15 +69,16 @@ const Navbar = () => {
                     </div>
         
                         <ul className="hidden md:flex ml-14 space-x-8">
+                        <LazyLoad height={200} offset={100}>
                         {kanektData.map((data) =>(
-                        !hiddenTitles.includes(data.title) && (
+                        data.isMenu && (
                                 <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
-                                   <Link to={data.slug}><h2>{data.title}</h2></Link>
-                                   <h2>{data.id}</h2>
+                                   <Link to={data.slug}><h2 className='text-[14px] font-[700]'>{data.title}</h2></Link>
                                 </li>
                             )
                             ))} 
+                        </LazyLoad>
                         </ul>
                                 {/* below 2 lines are alternative approach:- */}
                             {/* data.title.rendered !== "Bitrix Signup Stores" &&   <->

@@ -9,7 +9,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import axios from 'axios'
 
-const BlogsInner = ({blogs, blogsMainPosts}) => {
+// const BlogsInner = ({blogs, blogsMainPosts}) => {
+    const BlogsInner = () => {
 
     const [randomPosts, setRandomPosts] = useState([]);
 
@@ -47,7 +48,7 @@ const BlogsInner = ({blogs, blogsMainPosts}) => {
       }
 
     const {slug} = useParams();
-    const singlePost = blogs.find(p => generateSlug(p.title) === slug)
+    const singlePost = kanektBlogInnerData.find(p => generateSlug(p.title) === slug)
     if(!singlePost) {
         return <div>Not found</div>
     }

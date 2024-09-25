@@ -405,7 +405,7 @@ const CounterSection = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'}}>
-
+        
       <div className="mx-auto max-w-7xl px-10 mb-10">
         <dl className="grid grid-cols-1 gap-x-2 gap-y-16 text-center md:grid-cols-5">
           {stats.map((stat) => (

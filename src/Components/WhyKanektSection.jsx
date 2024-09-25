@@ -7,6 +7,7 @@ import { PlayCircleOutline } from '@mui/icons-material';
 import Close from '@mui/icons-material/Close';
 import AccordionUsage from './MTabs';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 
 const WhyKanektSection = () => {
 
@@ -48,12 +49,14 @@ const WhyKanektSection = () => {
       )}
           </div> */}
           <div className="relative w-full md:w-5/12">
+          <LazyLoad height={200} offset={500}>
             <img
               src={thumbnail}
               alt="Video Thumbnail"
               className="cursor-pointer w-full rounded-lg"
               onClick={handleOpen}
             />
+            </LazyLoad>
             <IconButton
               onClick={handleOpen}
               style={{

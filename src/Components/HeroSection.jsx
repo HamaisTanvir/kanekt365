@@ -4,6 +4,7 @@ import callStatus from '../assets/callStatus.png'
 import dashboardKpi from '../assets/dashboardKpi.png'
 import orderCall from '../assets/orderCall.png'
 import csatsMin from '../assets/csatsMin.png'
+import LazyLoad from 'react-lazyload'
 
 const HeroSection = () => {
   return (
@@ -15,18 +16,22 @@ const HeroSection = () => {
         <h2 className="text-3xl sm:text-6xl md:text-6xl text-center tracking-wide font-bold px-8">
         Kanekt 365’s <span style={{color: '#F8931F'}}> Restaurant </span> Automation
         </h2>
-        <a href="https://hamaistanvir.com" style={{backgroundColor: '#F8931F'}} className='px-5 py-2 mt-8 text-white text-lg font-semibold rounded-md'>Schedule Demo</a>
+        <a href="/" style={{backgroundColor: '#F8931F'}} className='px-5 py-2 mt-8 text-white text-lg font-semibold rounded-md'>Schedule Demo</a>
     </div>
       
       <div className="hidden md:flex mt-10 justify-center space-x-3">
         <div className="flex flex-col mb-20 justify-center space-y-3">
-            <img className='h-1/2w-auto' src={revenue} alt="revenue" />
+          <LazyLoad height={200} offset={300}>
+            <img className='h-1/2w-auto mb-3' src={revenue} alt="revenue" />
             <img className='h-1/2 w-auto' src={callStatus} alt="call-status" />
+          </LazyLoad>
         </div>
             <img className='h-1/4 w-2/4' src={dashboardKpi} alt="dashboard-kpi" />
         <div className="flex flex-col mb-20 justify-center space-y-3">
-            <img className='h-1/2 w-auto' src={orderCall} alt="order-call" />
+          <LazyLoad height={200} offset={300}>
+            <img className='h-1/2 w-auto mb-2' src={orderCall} alt="order-call" />
             <img className='h-1/2 w-auto' src={csatsMin} alt="csats-min" />
+          </LazyLoad>
         </div>
       </div>
 

@@ -63,9 +63,11 @@ const Navbar = () => {
 
                 <div className="flex justify-between items-center">
                     <div className="flex items-center flex-shrink-0">
-                        <Link to='/'>
-                            <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
-                        </Link>
+                        <LazyLoad height={200} offset={100}>
+                            <Link to='/'>
+                                <img className="h-20 w-25 mr-2" src={kanekt365Logo} alt="kanekt365Logo"/>
+                            </Link>
+                        </LazyLoad>
                     </div>
         
                         <ul className="hidden md:flex ml-14 space-x-8">
@@ -76,7 +78,7 @@ const Navbar = () => {
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
                                    <Link to={data.slug}><h2 className='text-[14px] font-[700]'>{data.title}</h2></Link>
                                 </li>
-                        </LazyLoad>
+                            </LazyLoad>
                             )
                             ))} 
                         </ul>

@@ -95,17 +95,17 @@ const EBooksInner = () => {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'}}>
 
-       <div className='hidden md:block'>
-         <h1 className="mt-1 text-[40px] font-bold text-white text-center">
+       <div>
+         <h1 className="mt-1 text-[30px] md:text-[40px] font-bold text-white text-center">
             Benefits Of An Exclusive Quick Service Restaurant Call center
          </h1>
        </div>
 
-        <div className='md:hidden'>
+        {/* <div className='md:hidden'>
           <h1 className="text-3xl mt-4 font-semibold text-white text-center pt-5 p-2">
             Watch the Kanekt 365 overview video to learn about everything our call centers have to offer and see your ROI!
           </h1>
-        </div>
+        </div> */}
 
         <div className='mt-5 flex items-center justify-center'>
           <Breadcrumbs>
@@ -119,8 +119,8 @@ const EBooksInner = () => {
             </Link>
           </Breadcrumbs>
           <Breadcrumbs>
-            <h2 to='/' className='flex items-center text-white text-sm font-semibold'>
-                Benefits Of An Exclusive Quick Service Restaurant Call center
+            <h2 to='/' className='text-white text-[15px] md:text-sm font-semibold whitespace-normal block'>
+                BENEFITS OF AN EXCLUSIVE QUICK SERVICE RSTAURANT CALL CENTER
             </h2> 
           </Breadcrumbs>
         </div>

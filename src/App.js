@@ -20,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Homepage />}/>
         <Route path='/blogs' element={<BlogsMain />}/>
+        {/* <Route path='/:slug' element={<BlogsInner blogs ={blogsMainPosts}/>}/>   */}
         <Route path='/:slug' element={<BlogsInner blogs ={blogsMainPosts}/>}/>  
         <Route path= '/kanekt-resources' element= {<EBooksMain />}/>
         <Route path= '/resources/:slug' element={<EBooksInner />}/>

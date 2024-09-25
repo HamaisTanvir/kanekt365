@@ -7,17 +7,40 @@ import purpleBlog from '../assets/purpleBlogwebp.webp'
 import { useState, useEffect } from 'react'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import axios from 'axios'
 
 const BlogsInner = ({blogs, blogsMainPosts}) => {
 
     const [randomPosts, setRandomPosts] = useState([]);
 
+    
+
+    const baseUrl = 'https://test.kanekt365.com/api/blogs/all';
+    const [kanektBlogInnerData, setKanektBlogInnerData] = useState([]);
+
+    useEffect(()=>{
+        axios.get(baseUrl)
+        .then(res => {
+            setKanektBlogInnerData(res.data);
+            const data = res.data
+            console.log(data);
+        })
+        // fetch('https://kanekt365.com/wp-json/wp/v2/pages?status=publish')
+        // .then(res => res.json())
+        // .then(data => {
+        //     setKanektData(data);
+        // })
+
+        .catch(err => console.error('errorr:', err));
+    }, []);
+
+
     useEffect(() => {
-      // Shuffle the array and select two random posts
-      const shuffledPosts = blogs.sort(() => 0.5 - Math.random());
-      const selectedPosts = shuffledPosts.slice(0, 2);
-      setRandomPosts(selectedPosts);
-    }, [blogs]);
+        // Shuffle the array and select two random posts
+        const shuffledPosts = kanektBlogInnerData.sort(() => 0.5 - Math.random());
+        const selectedPosts = shuffledPosts.slice(0, 2);
+        setRandomPosts(selectedPosts);
+      }, [kanektBlogInnerData]);
 
     const generateSlug = (title) => {
         return title.toLowerCase().replace(/ /g, '-');
@@ -143,7 +166,12 @@ const BlogsInner = ({blogs, blogsMainPosts}) => {
                         hover:shadow-lg transition duration-500 ease-out flex flex-col">
                             <div className='mt-5 block absolute top-48 left-[0px] w-[3px] h-[26px] bg-[#0773b3]'>
                             </div>
-                        <img src={mainPost.image} alt={mainPost.title} className="w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover"/>
+                            <img
+                                src={`data:image/jpeg;base64,${mainPost.photoPath}`}
+                                alt={mainPost.title}
+                                className='w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover'
+                            />
+                        {/* <img src={mainPost.image} alt={mainPost.title} className="w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover"/> */}
                             <h1 className="p-6 text-[20px] text-[#0773b3] font-bold text-left leading-7">
                                 {mainPost.title}
                             </h1>

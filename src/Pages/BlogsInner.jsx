@@ -8,14 +8,12 @@ import { useState, useEffect } from 'react'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import axios from 'axios'
+import LazyLoad from 'react-lazyload'
 
 // const BlogsInner = ({blogs, blogsMainPosts}) => {
     const BlogsInner = () => {
 
     const [randomPosts, setRandomPosts] = useState([]);
-
-    
-
     const baseUrl = 'https://test.kanekt365.com/api/blogs/all';
     const [kanektBlogInnerData, setKanektBlogInnerData] = useState([]);
 
@@ -23,8 +21,8 @@ import axios from 'axios'
         axios.get(baseUrl)
         .then(res => {
             setKanektBlogInnerData(res.data);
-            const data = res.data
-            console.log(data);
+            // const data = res.data
+            // console.log(data);
         })
         // fetch('https://kanekt365.com/wp-json/wp/v2/pages?status=publish')
         // .then(res => res.json())
@@ -48,10 +46,19 @@ import axios from 'axios'
       }
 
     const {slug} = useParams();
-    const singlePost = kanektBlogInnerData.find(p => generateSlug(p.title) === slug)
+    const singlePost = kanektBlogInnerData.find(p => generateSlug(p.title) === slug)    
     if(!singlePost) {
-        return <div>Not found</div>
+        <LazyLoad height={200} offset={300}>
+            return <div>Not found</div>
+        </LazyLoad>
     }
+
+    const IconRead = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" strokeWidth='36' width="16px" fill="#821246" stroke='#821246'>
+          <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
+        </svg>
+      )
+
   return (
         <div>
             <div className='pt-36 pb-16 text-white'
@@ -178,9 +185,9 @@ import axios from 'axios'
                             </h1>
             
                         <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
-                        <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.text}</h2>
-                        <p className='px-2 pt-2'>{mainPost.icon}</p>
-                        <p className='px-1 pt-1 text-[#666] text-[15px] line-clamp-2' dangerouslySetInnerHTML={{ __html: mainPost.content }}></p>
+                        <p className='px-1 pt-1 text-[#666] text-[15px] line-clamp-3' dangerouslySetInnerHTML={{ __html: mainPost.content }}></p>
+                        <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>Read More</h2>
+                        <p className='px-2 pt-2'><IconRead/></p>
                         </div>
             
                     </div>

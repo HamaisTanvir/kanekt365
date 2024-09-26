@@ -180,8 +180,7 @@ import axios from 'axios'
                         <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
                         <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.text}</h2>
                         <p className='px-2 pt-2'>{mainPost.icon}</p>
-                        <p className='px-2 pt-2' dangerouslySetInnerHTML={{ __html: mainPost.content }}></p>
-                        {/* <p className='px-2 pt-2'>dangerouslySetInnerHTML={{ __html: mainPost.content }}</p> */}
+                        <p className='px-1 pt-1 text-[#666] text-[15px]' dangerouslySetInnerHTML={{ __html: mainPost.content }}></p>
                         </div>
             
                     </div>

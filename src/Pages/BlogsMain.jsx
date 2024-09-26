@@ -33,6 +33,12 @@ const BlogsMain = () => {
     })
     }, []);
     
+    const IconRead = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" strokeWidth='36' width="16px" fill="#821246" stroke='#821246'>
+        <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
+      </svg>
+    )
+
   return (
     <div>
       <div className='pt-36 pb-16 text-white'
@@ -103,8 +109,8 @@ const BlogsMain = () => {
                             </Link>
 
                             <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
-                                <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.content}</h2>
-                                <p className='px-2 pt-2'>{mainPost.icon}</p>
+                                {/* <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.content}</h2> */}
+                                <p className='px-2 pt-2'><IconRead/></p>
                             </div>
                         </div>
                     ))

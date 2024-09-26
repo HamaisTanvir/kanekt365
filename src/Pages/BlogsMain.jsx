@@ -28,7 +28,7 @@ const BlogsMain = () => {
         // .catch(err => console.error('error:', err));
         .catch(err => {
           console.error('Error fetching data:', err);
-          setLoading(false); // Stop loading on error as well
+          setLoading(false); 
     })
     }, []);
     

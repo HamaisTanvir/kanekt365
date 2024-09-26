@@ -15,6 +15,7 @@ const BlogsMain = () => {
 
   const baseUrl = 'https://test.kanekt365.com/api/blogs/all';
     const [kanektBlogData, setKanektBlogData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         axios.get(baseUrl)
@@ -23,11 +24,34 @@ const BlogsMain = () => {
             // const data = res.data
             // console.log(data);
         })
-
-        .catch(err => console.error('error:', err));
+        // .catch(err => console.error('error:', err));
+        .catch(err => {
+          console.error('Error fetching data:', err);
+          setLoading(false); // Stop loading on error as well
+    })
     }, []);
 
 
+    // Loading Placeholder for entire blog area
+    if (loading) {
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mt-10 mx-auto">
+          {Array(6).fill().map((_, i) => (
+            <div key={i} className="px-4 py-5">
+              <div className="relative border-[1px] border-[#dee4e9] h-[400px] bg-gray-200 rounded-r-none rounded-3xl animate-pulse">
+                {/* Placeholder skeleton */}
+                <div className="w-full h-48 bg-gray-300 rounded-tl-none rounded-3xl"></div>
+                <div className="p-6">
+                  <div className="w-3/4 h-8 bg-gray-300 mb-4"></div>
+                  <div className="w-full h-4 bg-gray-300 mb-4"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+    
   return (
     <div>
       <div className='pt-36 pb-16 text-white'

@@ -22,6 +22,7 @@ const BlogsMain = () => {
         axios.get(baseUrl)
         .then(res => {
             setKanektBlogData(res.data);
+            setLoading(false);
             // const data = res.data
             // console.log(data);
         })

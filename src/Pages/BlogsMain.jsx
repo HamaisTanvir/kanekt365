@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Breadcrumbs } from '@mui/material'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import LazyLoad from 'react-lazyload'
 
 const BlogsMain = () => {
 
@@ -19,16 +20,11 @@ const BlogsMain = () => {
         axios.get(baseUrl)
         .then(res => {
             setKanektBlogData(res.data);
-            const data = res.data
-            console.log(data);
+            // const data = res.data
+            // console.log(data);
         })
-        // fetch('https://kanekt365.com/wp-json/wp/v2/pages?status=publish')
-        // .then(res => res.json())
-        // .then(data => {
-        //     setKanektData(data);
-        // })
 
-        .catch(err => console.error('errorr:', err));
+        .catch(err => console.error('error:', err));
     }, []);
 
 
@@ -75,6 +71,7 @@ const BlogsMain = () => {
        </div>
 
     <div className='grid grid-cols-1 md:grid-cols-3 max-w-6xl mt-10 mx-auto'>
+  
     {kanektBlogData.map((mainPost, index) => (
         <div key={index} className="px-4 py-5">
           <div className="relative border-[1px] border-[#dee4e9] h-[400px] pl-6 bg-white rounded-r-none rounded-3xl overflow-hidden 
@@ -83,26 +80,33 @@ const BlogsMain = () => {
                 <div className='mt-5 block absolute top-48 left-[0px] w-[3px] h-[26px] bg-[#0773b3]'>
                 </div>
                 {/* <img src={{data:image/jpeg;base64,(mainPost.image)}} alt="Blog Image"/> */}
+                <LazyLoad height={200} offset={100}>
                 <img
                         src={`data:image/jpeg;base64,${mainPost.photoPath}`}
                         alt={mainPost.title}
                         className='w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover'
                     />
+                </LazyLoad>
               {/* <img src={mainPost.image} alt={mainPost.title} className="w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover"/> */}
+              <LazyLoad height={200} offset={100}>
               <Link to={`/${generateSlug(mainPost.title)}`} >
                 <h1 className="p-6 text-[20px] text-[#0773b3] font-bold text-left leading-7">
                     {mainPost.title}
                 </h1>
               </Link>
+              </LazyLoad>
 
-            <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
-              <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.text}</h2>
-              <p className='px-2 pt-2'>{mainPost.icon}</p>
-            </div>
+              <LazyLoad height={200} offset={100}>
+              <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
+                <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.text}</h2>
+                <p className='px-2 pt-2'>{mainPost.icon}</p>
+              </div>
+              </LazyLoad>
 
           </div>
         </div>
       ))}
+
       </div>
     </div>
   )

@@ -29,6 +29,7 @@
     "tw-elements-react": "^1.0.0-alpha-end",
     "web-vitals": "^2.1.4"
   },
+  "proxy": "https://test.kanekt365.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

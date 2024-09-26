@@ -94,6 +94,8 @@ const BlogsMain = () => {
                 ) : (
                     kanektBlogData.map((mainPost, index) => (
                         <div key={index} className="px-4 py-5">
+                          <div className="relative border-[1px] border-[#dee4e9] h-[400px] pl-6 bg-white rounded-r-none rounded-3xl overflow-hidden 
+                          hover:shadow-lg transition duration-500 ease-out flex flex-col">
                             <LazyLoad height={200} offset={300}>
                                 <img
                                     src={`data:image/jpeg;base64,${mainPost.photoPath}`}
@@ -114,6 +116,7 @@ const BlogsMain = () => {
                                 <p className='px-2 pt-2'><IconRead/></p>
                             </div>
                         </div>
+                      </div>
                     ))
                 )}
             </div>

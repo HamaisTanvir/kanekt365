@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@mui/material'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import LazyLoad from 'react-lazyload'
+import Skeleton from '@mui/material'
 
 const BlogsMain = () => {
 
@@ -30,27 +31,6 @@ const BlogsMain = () => {
           setLoading(false); // Stop loading on error as well
     })
     }, []);
-
-
-    // Loading Placeholder for entire blog area
-    if (loading) {
-      return (
-        <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mt-10 mx-auto">
-          {Array(6).fill().map((_, i) => (
-            <div key={i} className="px-4 py-5">
-              <div className="relative border-[1px] border-[#dee4e9] h-[400px] bg-gray-200 rounded-r-none rounded-3xl animate-pulse">
-                {/* Placeholder skeleton */}
-                <div className="w-full h-48 bg-gray-300 rounded-tl-none rounded-3xl"></div>
-                <div className="p-6">
-                  <div className="w-3/4 h-8 bg-gray-300 mb-4"></div>
-                  <div className="w-full h-4 bg-gray-300 mb-4"></div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      );
-    }
     
   return (
     <div>
@@ -94,44 +74,41 @@ const BlogsMain = () => {
         </div>
        </div>
 
-    <div className='grid grid-cols-1 md:grid-cols-3 max-w-6xl mt-10 mx-auto'>
-  
-    {kanektBlogData.map((mainPost, index) => (
-        <div key={index} className="px-4 py-5">
-          <div className="relative border-[1px] border-[#dee4e9] h-[400px] pl-6 bg-white rounded-r-none rounded-3xl overflow-hidden 
-            hover:shadow-lg transition duration-500 ease-out flex flex-col">
-              
-                <div className='mt-5 block absolute top-48 left-[0px] w-[3px] h-[26px] bg-[#0773b3]'>
-                </div>
-                {/* <img src={{data:image/jpeg;base64,(mainPost.image)}} alt="Blog Image"/> */}
-                <LazyLoad height={200} offset={100} placeholder={<div className="animate-pulse bg-gray-200 h-48 w-96"></div>}>
-                <img
-                        src={`data:image/jpeg;base64,${mainPost.photoPath}`}
-                        alt={mainPost.title}
-                        className='w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover'
-                    />
-                </LazyLoad>
-              {/* <img src={mainPost.image} alt={mainPost.title} className="w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover"/> */}
-              <LazyLoad height={200} offset={100} placeholder={<div className="animate-pulse bg-gray-200 h-48 w-96"></div>}>
-              <Link to={`/${generateSlug(mainPost.title)}`} >
-                <h1 className="p-6 text-[20px] text-[#0773b3] font-bold text-left leading-7">
-                    {mainPost.title}
-                </h1>
-              </Link>
-              </LazyLoad>
+       <div className='grid grid-cols-1 md:grid-cols-3 max-w-6xl mt-10 mx-auto'>
+                {/* Show placeholder while loading */}
+                {loading ? (
+                    Array(6).fill().map((_, index) => (
+                        <div key={index} className="px-4 py-5">
+                            <Skeleton variant="rectangular" width="100%" height={250} />
+                            <Skeleton variant="text" height={50} />
+                            <Skeleton variant="text" height={30} />
+                        </div>
+                    ))
+                ) : (
+                    kanektBlogData.map((mainPost, index) => (
+                        <div key={index} className="px-4 py-5">
+                            <LazyLoad height={200} offset={300}>
+                                <img
+                                    src={`data:image/jpeg;base64,${mainPost.photoPath}`}
+                                    alt={mainPost.title}
+                                    className='w-96 h-48 rounded-r-none rounded-tl-none rounded-3xl object-cover'
+                                />
+                            </LazyLoad>
 
-              <LazyLoad height={200} offset={100} placeholder={<div className="animate-pulse bg-gray-200 h-48 w-96"></div>}>
-              <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
-                <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.text}</h2>
-                <p className='px-2 pt-2'>{mainPost.icon}</p>
-              </div>
-              </LazyLoad>
+                            <Link to={`/${generateSlug(mainPost.title)}`}>
+                              <h1 className="p-6 text-[20px] text-[#0773b3] font-bold text-left leading-7">
+                                {mainPost.title}
+                              </h1>
+                            </Link>
 
-          </div>
-        </div>
-      ))}
-
-      </div>
+                            <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
+                                <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>{mainPost.content}</h2>
+                                <p className='px-2 pt-2'>{mainPost.icon}</p>
+                            </div>
+                        </div>
+                    ))
+                )}
+            </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@mui/material'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import LazyLoad from 'react-lazyload'
-import Skeleton from '@mui/material/Skeleton'
+import { Skeleton } from '@mui/material';
 
 const BlogsMain = () => {
 

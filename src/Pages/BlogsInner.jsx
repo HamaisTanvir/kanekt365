@@ -185,7 +185,7 @@ import LazyLoad from 'react-lazyload'
                             </h1>
             
                         <div className='flex justify-left pt-6 pb-8 px-6 mt-auto'>
-                        <p className='px-1 pt-1 text-[#666] text-[15px] line-clamp-3' dangerouslySetInnerHTML={{ __html: mainPost.content }}></p>
+                        {/* <p className='px-1 pt-1 text-[#666] text-[15px] line-clamp-3' dangerouslySetInnerHTML={{ __html: mainPost.content }}></p> */}
                         <h2 className='text-[13px] text-[#0773b3] font-bold leading-8'>Read More</h2>
                         <p className='px-2 pt-2'><IconRead/></p>
                         </div>

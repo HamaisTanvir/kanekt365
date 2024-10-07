@@ -4,6 +4,10 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { useState } from 'react';
+import { Breadcrumbs } from '@mui/material';
+import { Link } from 'react-router-dom';
+import blogsBg from '../assets/blogsBg.jpg'
+
 
 const BitrixSignupForm = () => {
  
@@ -105,6 +109,41 @@ const BitrixSignupForm = () => {
   };
 
   return (
+
+  <div>
+       <div className='pt-40 pb-36 text-white'
+        style={{
+            backgroundImage: `url(${blogsBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'}}>
+
+       <div className='hidden md:block'>
+         <h1 className="mt-1 text-[40px] font-bold text-white text-center">
+            Sign up
+         </h1>
+       </div>
+
+        <div className='md:hidden'>
+          <h1 className="text-3xl mt-4 font-semibold text-white text-center pt-5 p-2">
+            Watch the Kanekt 365 overview video to learn about everything our call centers have to offer and see your ROI!
+          </h1>
+        </div>
+
+        <div className='mt-5 flex items-center justify-center'>
+          <Breadcrumbs>
+            <Link to='/' className='flex items-center text-white text-sm font-semibold'>
+                HOME <span className='px-4 text-[#0773b3] text-[24px]'>&#x2022;</span>
+            </Link>
+          </Breadcrumbs>
+          <Breadcrumbs>
+            <Link to='//' className='flex items-center text-white text-sm font-semibold'>
+                SIGN UP
+            </Link>
+          </Breadcrumbs>
+        </div>
+       </div>
+
     <form onSubmit={handleSubmit}>
           <h1 className="text-3xl text-center font-bold leading-7 text-gray-900 mt-10">Quick Service Restaurant</h1>
           <h2 className="text-lg text-center font-bold mt-12" style={{color: '#333333'}}>CLIENT ONBOARDING - STORE SIGN UP</h2>
@@ -530,9 +569,9 @@ const BitrixSignupForm = () => {
            </div>
       </div>
     </form>
+  </div>
   )
 }
 
 export default BitrixSignupForm
     
-

@@ -37,6 +37,7 @@ const Footer = () => {
       setEmail('');
     }
   };
+  
   return (
     <footer className='mt-20'>
       <div className="grid grid-cols-1 md:grid-cols-4 text-white p-8 gap-0 space-y-4 md:space-y-0 pt-10" style={{backgroundColor: '#212121'}}>

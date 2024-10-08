@@ -8,6 +8,23 @@ import { ciData } from '../constants'
 
 const ContactUs = () => {
 
+  
+  const [emailNews, setEmailNews] = useState('');
+  const [messageNews, setMessageNews] = useState('');
+  const [isErrorNews, setIsErrorNews] = useState(false);
+
+  const handleSubmitNews = (e) => {
+    e.preventDefault();
+    if (!emailNews) {
+      setMessageNews('Please enter your email');
+      setIsErrorNews(true);
+    } else {
+      setMessage('Successfully subscribed to the newsletter!');
+      setIsErrorNews(false);
+      setEmail('');
+    }
+  };
+  
   const IconC4 = () => (
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
    width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -81,55 +98,55 @@ const ContactUs = () => {
     </svg>
   )
 
-    const [yourName, setYourName] = useState('');
-    const [yourNameError, setYourNameError] = useState('');
-    const [email, setEmail] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [subject, setSubject] = useState('');
-    const [subjectError, setSubjectError] = useState('');
-    const [message, setMessage] = useState('');
-    const [messageError, setMessageError] = useState('');
+  const [yourName, setYourName] = useState('');
+  const [yourNameError, setYourNameError] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [subject, setSubject] = useState('');
+  const [subjectError, setSubjectError] = useState('');
+  const [message, setMessage] = useState('');
+  const [messageError, setMessageError] = useState('');
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        let valid = true;
-    
-        if (!yourName) {
-          setYourNameError('Your Name is required');
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      let valid = true;
+  
+      if (!yourName) {
+        setYourNameError('Your Name is required');
+        valid = false;
+      } else {
+        setYourNameError('');
+      }
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          setEmailError('Valid email address is required');
+          valid = false;
+      } else {
+        setEmailError('');
+      }
+
+      if (!subject) {
+          setSubjectError('Subject is required');
           valid = false;
         } else {
-          setYourNameError('');
+          setSubjectError('');
         }
-       
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            setEmailError('Valid email address is required');
-            valid = false;
+
+        if (!message) {
+          setMessageError('Message is required');
+          valid = false;
         } else {
-          setEmailError('');
-        }
-
-        if (!subject) {
-            setSubjectError('Subject is required');
-            valid = false;
-          } else {
-            setSubjectError('');
-          }
-
-          if (!message) {
-            setMessageError('Message is required');
-            valid = false;
-          } else {
-            setMessageError('');
-          }
-      
-        if(!valid) {
-          return;
+          setMessageError('');
         }
     
-        console.log('Form submitted with:', { yourName });  //......... ???
-      };
+      if(!valid) {
+        return;
+      }
+  
+      console.log('Form submitted with:', { yourName });  //......... ???
+    };
 
 
   return (
@@ -229,9 +246,32 @@ const ContactUs = () => {
                   <div className='flex flex-col '>
                     <h1 className='font-bold text-[26px]'>{data.title} </h1>
                     <div className='text-[15px] text-[#282727] font-normal leading-[26px] my-2 '>
-                    <p>{data.text} </p>
-                    <p>{data.text2} </p>
-                    <p>{data.text3} </p>
+                      {data.id === 1 && (
+                        <h2>
+                          <a href={`tel:${data.text}`} className='text-[#282d47] hover:text-[#0773B3] transition duration-500 text-[15px] font-[400] leading-[26px]'>
+                            {data.text}
+                          </a>
+                        </h2>
+                       
+                      )}
+
+                      {data.id === 2 && (
+                         <h2>
+                         <a className='text-[#282d47] hover:text-[#0773B3] transition duration-500 text-[15px] font-[400] leading-[26px]' href={`mailto:${data.text}`}>
+                           {data.text}
+                         </a>
+                       </h2>
+                      )}
+
+                      {data.id === 3 && (
+                       <>
+                        <p>{data.text} </p>
+                        <p>{data.text2} </p>
+                        <p>{data.text3} </p>
+                       </>
+                      )}
+
+
                     </div>
                   </div>
                 </dt>
@@ -241,6 +281,7 @@ const ContactUs = () => {
 
               <h1 className='font-bold text-center text-[#222d35] ml-44 text-[40px] leading-[40px]'> Help Desk </h1>
               <div className='flex'>
+
                 <dt className='flex items-start gap-x-3 py-5 leading-6'>
                   <span className='bg-[#282d47] rounded-full text-center p-3' >
                     <IconC4 />
@@ -249,8 +290,19 @@ const ContactUs = () => {
                     <div className='text-[15px] text-[#282727] font-normal leading-[26px] '>
                       <p>Monday – Sunday</p>
                       <p>9am to 3am EST</p>
-                      <p>(830)-630-8300</p>
-                      <p>support@kanekt365.com</p>
+
+                      <div className='mt-1'>
+                        <a className='text-[#282d47] hover:text-[#0773B3] transition duration-500 text-[15px] font-[400] leading-[26px]' href="tel:(830)-630-8300">
+                          (830)-630-8300
+                        </a>
+                      </div>
+
+                      <div>
+                        <a className='text-[#282d47] hover:text-[#0773B3] transition duration-500 text-[15px] font-[400] leading-[26px]' href="mailto:support@kanekt365.com">
+                          support@kanekt365.com
+                        </a>
+                      </div>
+
                     </div>
                  
                 </dt>
@@ -263,7 +315,7 @@ const ContactUs = () => {
 
           <div>
             <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-14'>Write to Us:</h1>
-            <div className="w-[540px] h-[520px] border-2 border-gray-900/10 rounded-lg p-10">
+            <div className="w-[557px] h-[555px] border-2 border-gray-700/10 rounded-lg p-6">
               
               <form onSubmit={handleSubmit}>   
 
@@ -278,7 +330,7 @@ const ContactUs = () => {
                           onChange={(e) => setYourName(e.target.value)}
                           autoComplete="first-name"
                           // className="block w-full rounded-md py-3 text-[15px] font-[400] text-[#263238] placeholder:text-[#666666] focus:ring-1 focus:ring-indigo-800"
-                          className="block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-sm md:leading-10"
                           />
                       </div>
                       {yourNameError && (
@@ -298,7 +350,7 @@ const ContactUs = () => {
                           placeholder='Email*'
                           onChange={(e) => setEmail(e.target.value)}
                           autoComplete="email"
-                          className="block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
                           />
                       </div>
                       {emailError && (
@@ -318,7 +370,7 @@ const ContactUs = () => {
                           placeholder='Subject'
                           onChange={(e) => setSubject(e.target.value)}
                           autoComplete="subject"
-                          className="block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
                           />
                       </div>
                       {subjectError && (
@@ -338,7 +390,7 @@ const ContactUs = () => {
                           placeholder='Message'
                           onChange={(e) => setMessage(e.target.value)}
                           autoComplete="message"
-                          className="block w-full rounded-md border-0 pt-3 pb-24 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 pt-3 pb-28 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                           />
                       </div>
                       {messageError && (
@@ -349,14 +401,106 @@ const ContactUs = () => {
                   </div>
                   
                   <div className='flex justify-center mt-5'>
-                      <button type='submit' className='py-4 px-[187px] rounded-md text-white font-[700]
-                      bg-[#0773B3] text-sm'>GET IT NOW</button>
+                      <button type='submit' className='py-4 px-[205px] rounded-md text-white font-[700]
+                      bg-[#282d47] hover:bg-[#0773B3] text-sm transition duration-500'>SUBMIT NOW</button>
                   </div>
+
               </form>     
+
             </div>
           </div>
 
        </div>
+
+       <div className='flex justify-around bg-[#0773B3] items-center rounded-lg max-w-[1110px] mx-auto py-8 px-4 mt-10'>
+
+          <div className='text-[27px] font-[700] text-[#fff] w-[430px] leading-relaxed'>
+            <h2>Stay up to date with our news, ideas and updates</h2>
+          </div>
+
+          <div>
+            <form onSubmit={handleSubmitNews} className="relative flex items-center">
+              <input
+                type="emailNews"
+                placeholder="Enter your email"
+                value={emailNews}
+                onChange={(e) => setEmailNews(e.target.value)}
+                className="w-[550px] p-4 ml-2 md:ml-0 rounded border border-gray-300 text-gray-100 flex-1"
+                
+              />
+            <button
+              type="submit"
+              className="absolute w-44 right-0 top-0 bottom-0 text-white p-3 rounded rounded-tl-none rounded-bl-none flex items-center justify-center bg-[#000]">
+              <h2>SUBSCRIBE</h2>
+            </button>
+            </form>
+            {messageNews && (
+              <p className={`mt-1 ml-2 md:ml-0 ${isErrorNews ? 'text-red-500' : 'text-green-500'}`}>
+                {messageNews}
+              </p>
+            )}
+          </div>
+          
+       </div>
+
+       {/* ---------------- */}
+
+        <div className='pt-16 pb-12'>
+          <h2 className='text-[44.46px] font-[700] text-[#222d35] leading-[46px] text-center pb-14'>OUR LOCATIONS</h2>
+          <div className='grid grid-cols-3 max-w-[1110px] mx-auto gap-y-8'>
+            
+            <div>
+              <h1 className='text-[#0773B3] text-[26px] font-[700] leading-[46px]'>UNITED STATES</h1>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px]'>Headquarters</h2>
+              <p className='text-left w-72 text-[#666] text-[18px] font-[500] leading-[26px]'>585 Union Avenue Suite 7 A&B Laconia, New Hampshire, 03246</p>
+            </div>
+
+            <div>
+              <h1 className='text-[#0773B3] text-[26px] font-[700] leading-[46px]'>PAKISTAN</h1>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px]'>Lahore Office</h2>
+              <p className='text-left w-72 text-[#666] text-[18px] font-[500] leading-[26px]'>Bahria Complex Tower, Plot # 103, Upper Mall, Lahore, Punjab</p>
+            </div>
+
+            <div>
+              <h1 className='text-[#0773B3] text-[26px] font-[700] leading-[46px]'>UAE</h1>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px]'>Ras Al Khaimah Office</h2>
+              <p className='text-left w-80 text-[#666] text-[18px] font-[500] leading-[26px]'>FDAM0011 Service Block Al Jazirah, Al Hamra Industrial Zone-FZ, Ras Al Khaimah</p>
+            </div>
+
+            <div>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px] my-auto'>Delaware Office</h2>
+              <p className='text-left w-64 text-[#666] text-[18px] font-[500] leading-[26px]'>16192 Coastal Highway, Lewes, Delaware, 19958</p>
+            </div>
+
+            <div>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px]'>Islamabad Office</h2>
+              <p className='text-left w-[350px] text-[#666] text-[18px] font-[500] leading-[26px]'>Office #101 and 102 first floor, Evacuee trust complex, Sir Agha Khan Road, plot 04, F5/1, Islamabad, Punjab</p>
+            </div>
+
+            <div>
+              <h1 className='text-[#0773B3] text-[26px] font-[700] leading-[46px] pt-5'>PHILIPPINES</h1>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px]'>Davao City Office</h2>
+              <p className='text-left w-[338px] text-[#666] text-[18px] font-[500] leading-[26px]'>Off# 618 & 619, Regus Felcris Centrale Center, 6th Floor Felcris Centrale, 40-D Quimpo Blvd, Talomo, 8000, Davao City</p>
+            </div>
+
+            <div>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px] mt-[-90px]'>Fremont Office</h2>
+              <p className='text-left w-64 text-[#666] text-[18px] font-[500] leading-[26px]'>42910 Corte Caracas, Fremont, California, 94539</p>
+            </div>
+
+            
+            <div>
+              <h2 className='text-[#000] text-[18px] font-[700] leading-[46px] mt-[-90px]'>Karachi Office</h2>
+              <p className='text-left w-76 text-[#666] text-[18px] font-[500] leading-[26px]'>Floor 8, 9, 10 & 11, Bahria Town Tower Tariq Road, Shahrah-e-Quaideen Karachi, Sindh</p>
+            </div>
+
+            <div>
+              <h1 className='text-[#0773B3] text-[26px] font-[700] leading-[46px]'>COSTA RICA</h1>
+              <p className='text-left w-80 text-[#666] text-[18px] font-[500] leading-[26px]'>We Work, 5th Floor, Escazú, San José, SJ 10203</p>
+            </div>
+
+          </div>
+        </div>
        
     </div>
 

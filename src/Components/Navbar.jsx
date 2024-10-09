@@ -76,8 +76,11 @@ const Navbar = () => {
                             <LazyLoad height={200} offset={100}>
                                 <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
-                                    {/* <Link to={data.slug}><h2 className='text-[14px] font-[700]'>{data.title}</h2></Link> */}
-                                    <h2><Link to={data.slug} className='text-[14px] font-[700] uppercase'>{data.title}</Link></h2>
+                                    <h2>
+                                      <Link to={data.slug} className='text-[14px] font-[700] uppercase tracking-[.5px]'>
+                                        {data.title}
+                                      </Link>
+                                    </h2>
                                 </li>
                             </LazyLoad>
                             )

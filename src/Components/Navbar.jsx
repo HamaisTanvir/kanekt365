@@ -74,10 +74,10 @@ const Navbar = () => {
                         {kanektData.map((data) =>(
                             data.isMenu && (
                             <LazyLoad height={200} offset={100}>
-                                <li key={data.id} className='text-md font-semibold hover:text-blue-900'>
+                                <li key={data.id}>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
                                     <h2>
-                                      <Link to={data.slug} className='text-[14px] font-[700] uppercase tracking-[.5px]'>
+                                      <Link to={data.slug} className='text-[14px] font-[700] uppercase tracking-[.5px] hover:text-[#0773b3] focus:text-[#0773b3]'>
                                         {data.title}
                                       </Link>
                                     </h2>

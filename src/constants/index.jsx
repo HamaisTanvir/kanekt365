@@ -1026,7 +1026,7 @@ fill="#fff" stroke="none">
 
 const IconC2 = () => (
   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="20.000000pt" height="20.000000pt" viewBox="0 0 20.000000 215.000000"
+ width="20.000000pt" height="20.000000pt" viewBox="0 0 215.000000 215.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,215.000000) scale(0.100000,-0.100000)"

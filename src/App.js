@@ -11,6 +11,7 @@ import BlogsInner from './Pages/BlogsInner';
 import EBooksMain from './Pages/EBooksMain';
 import EBooksInner from './Pages/EBooksInner';
 import ContactUs from './Components/ContactUs';
+import Pricing from './Components/Pricing'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path= '/resources/:slug' element={<EBooksInner />}/>
         <Route path='/bitrixsignupform' element={<BitrixSignupForm />}/>
         <Route path='/contact-us' element={<ContactUs />}/>
+        <Route path='/pricing' element={<Pricing />}/>
       </Routes>
       <Footer />
     </Router>

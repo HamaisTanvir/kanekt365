@@ -24,6 +24,32 @@ function createData(name, numberofstores, costpercall) {
     createData('100+', '$ 0.90'),
     ];
   
+    const [SAT, setSAT] = useState('$24')
+    const [AWR, setAWR] = useState('$18,000')
+    const [onlineOrders, setOnlineOrders] = useState('')
+    const [walkinOrders, setWalkinOrders] = useState('')
+    const [hoursPerWeek, setHoursPerWeek] = useState('')
+    const [entireChain, setEntireChain] = useState('')
+    const [storesYouOwn, setStoresYouOwn] = useState('')
+
+    const handleSAT = (e) => {
+        let inputValue = e.target.value;
+        // Ensure `$` remains at the beginning
+        if (!inputValue.startsWith('$')) {
+          inputValue = `$${inputValue.replace('$', '')}`;
+        }
+        setSAT(inputValue);
+      };
+
+      const handleAWR = (e) => {
+        let inputValue = e.target.value;
+        // Ensure `$` remains at the beginning
+        if (!inputValue.startsWith('$')) {
+          inputValue = `$${inputValue.replace('$', '')}`;
+        }
+        setAWR(inputValue);
+      };
+
   const [emailNews, setEmailNews] = useState('');
   const [messageNews, setMessageNews] = useState('');
   const [isErrorNews, setIsErrorNews] = useState(false);
@@ -34,61 +60,57 @@ function createData(name, numberofstores, costpercall) {
       setMessageNews('Please enter your email');
       setIsErrorNews(true);
     } else {
-      setMessage('Successfully subscribed to the newsletter!');
+      setMessageNews('Successfully subscribed to the newsletter!');
       setIsErrorNews(false);
-      setEmail('');
+      setEmailNews('');
     }
   };
   
 
-  const [yourName, setYourName] = useState('');
-  const [yourNameError, setYourNameError] = useState('');
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [subject, setSubject] = useState('');
-  const [subjectError, setSubjectError] = useState('');
-  const [message, setMessage] = useState('');
-  const [messageError, setMessageError] = useState('');
-
-
   const handleSubmit = (e) => {
       e.preventDefault();
       let valid = true;
-  
-      if (!yourName) {
-        setYourNameError('Your Name is required');
-        valid = false;
-      } else {
-        setYourNameError('');
-      }
-      
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          setEmailError('Valid email address is required');
-          valid = false;
-      } else {
-        setEmailError('');
-      }
 
-      if (!subject) {
-          setSubjectError('Subject is required');
-          valid = false;
+        if (!onlineOrders) {
+            setOnlineOrders('This is required');
+            valid = false;
         } else {
-          setSubjectError('');
+            setOnlineOrders(e.target.value);
         }
 
-        if (!message) {
-          setMessageError('Message is required');
-          valid = false;
+        if (!walkinOrders) {
+            setWalkinOrders('This is required');
+            valid = false;
+          } else {
+            setWalkinOrders(e.target.value);
+          }
+
+        if (!hoursPerWeek) {
+            setHoursPerWeek('This is required');
+            valid = false;
         } else {
-          setMessageError('');
+            setHoursPerWeek(e.target.value);
+        }
+
+        if (!entireChain) {
+            setEntireChain('This is required');
+            valid = false;
+        } else {
+            setEntireChain(e.target.value);
+        }
+
+        if (!storesYouOwn) {
+            setStoresYouOwn('This is required');
+            valid = false;
+        } else {
+            setStoresYouOwn(e.target.value);
         }
     
       if(!valid) {
         return;
       }
   
-      console.log('Form submitted with:', { yourName });  //......... ???
+      console.log('Form submitted with:', { SAT });  //......... ???
     };
 
   return (
@@ -180,33 +202,34 @@ function createData(name, numberofstores, costpercall) {
        <div className='flex gap-6 max-w-full mt-10 px-28 py-12 bg-[#F6F6F6]'>
         
           <div className='flex flex-col p-2 max-w-[545px]'> 
-
-        <TableContainer>
-        <Table sx={{ minWidth: 520, border: 1, borderColor: 'lightgray'}} aria-label="simple table">
-            <TableHead>
-            <TableRow sx={{border: 1, borderColor: 'black'}}>
-                <TableCell sx={{background: '#0773b3', color: '#fff', fontWeight: 'bold'}}>Number of Stores</TableCell>
-                <TableCell sx={{background: '#0773b3', color: '#fff', fontWeight: 'bold'}} align="left">Cost per Call</TableCell>
-                <TableCell sx={{background: '#0773b3'}}></TableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {rows.map((row) => (
-                <TableRow
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                <TableCell component="th" scope="row" sx={{fontSize: '18px', fontWeight: '700', color: '#272727'}}>
-                    {row.name}
-                </TableCell>
-                <TableCell sx={{color: '#666', fontSize: '18px'}} align="left">{row.numberofstores}</TableCell>
-                <TableCell align="left">{row.costpercall}</TableCell>
+            <TableContainer>
+            <Table sx={{ minWidth: 520, border: 1, borderColor: '#dedede'}} aria-label="simple table">
+                <TableHead sx={{border: 2, borderColor: 'black'}}>
+                <TableRow >
+                    <TableCell sx={{background: '#0773b3', color: '#fff', fontWeight: 'bold', border: 1}}>Number of Stores</TableCell>
+                    <TableCell sx={{background: '#0773b3', color: '#fff', fontWeight: 'bold'}} align="left">Cost per Call</TableCell>
+                    <TableCell sx={{background: '#0773b3'}}></TableCell>
                 </TableRow>
-            ))}
-            </TableBody>
-        </Table>
-        </TableContainer>
-        
+                </TableHead>
+                <TableBody>
+                {rows.map((row) => (
+                    <TableRow
+                    key={row.name}
+                
+                    >
+                    <TableCell component="th" scope="row" sx={{fontSize: '18px', fontWeight: '700', color: '#272727'}}>
+                        {row.name}
+                    </TableCell>
+                    <TableCell sx={{color: '#666', fontSize: '18px', borderLeft: 1, borderColor: '#dedede'}} align="left">{row.numberofstores}</TableCell>
+                    <TableCell align="left">{row.costpercall}</TableCell>
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </TableContainer>
+
+            <h2 className='text-[14px] font-[600] leading-[24px] text-[#54595F] mt-4 italic'>
+            ALL PRICING SUBJECT TO CHANGE</h2>
           </div> 
 
           <div className='space-y-3'>
@@ -233,113 +256,253 @@ function createData(name, numberofstores, costpercall) {
        </div>
             {/* <-------------------------------------> */}
     
-        <div className='flex gap-56 justify-center max-w-full pt-[100px]'>
+        <div className='pt-[100px]'>
+
+            <div>
+                <h2 className='text-[15px] font-[600] text-[#0773B3] text-center leading-[26px] mb-1'>
+                    SEE THE PROFIT AN AVERAGE STORE CAN MAKE THEN ENTER YOUR OWN
+                </h2>
+                <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-14'>
+                    OUR ROI PRICING CALCULATOR
+                </h1>
+
+                <form onSubmit={handleSubmit}>   
+                    <div className="max-w-6xl gap-x-6 gap-y-4  grid grid-cols-1 md:grid-cols-8 mx-auto p-6">
+
+                            <div className="md:col-span-2 md:col-start-1">
+                            <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Avg. Weekly Revenue</h2>
+                                <div>
+                                    <input
+                                    id="awr"
+                                    name="awr"
+                                    type="text"
+                                    value={AWR}
+                                    placeholder=''
+                                    onChange={handleAWR}
+                                    autoComplete="awr"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Stores Average Ticket</h2>
+                                <div>
+                                    <input
+                                    id="sat"
+                                    name="sat"
+                                    type="text"
+                                    value={SAT}
+                                    placeholder=''
+                                    onChange= {handleSAT}
+                                    autoComplete="email"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="md:col-span-2">
+                            <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>% Online Orders</h2>
+                                <div>
+                                    <input
+                                    id="onlineorders"
+                                    name="onlineorders"
+                                    type="text"
+                                    value={onlineOrders}
+                                    placeholder='40'
+                                    onChange={(e) => setOnlineOrders(e.target.value)}
+                                    autoComplete="online-orders"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="md:col-span-2">
+                            <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>% Walkin Orders</h2>
+                                <div>
+                                    <input
+                                    id="walkinorders"
+                                    name="walkinorders"
+                                    type="text"
+                                    value={walkinOrders}
+                                    placeholder='3'
+                                    onChange={(e) => setWalkinOrders(e.target.value)}
+                                    autoComplete="walkin-orders"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+                    </div>
+
+                    <div className="max-w-5xl gap-x-8 gap-y-4 grid grid-cols-1 md:grid-cols-6 mx-auto p-6">
+
+                            <div className="md:col-span-2 md:col-start-1">
+                            <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Hours Open Per Week</h2>
+                                <div>
+                                    <input
+                                    id="hoursperweek"
+                                    name="hoursperweek"
+                                    type="text"
+                                    value={hoursPerWeek}
+                                    placeholder='86'
+                                    onChange={(e) => setHoursPerWeek(e.target.value)}
+                                    autoComplete="hour-per-week"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="md:col-span-2">
+                            <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Number Of Stores In Entire Chain</h2>
+                                <div>
+                                    <input
+                                    id="entirechain"
+                                    name="entirechain"
+                                    type="text"
+                                    value={entireChain}
+                                    placeholder='500'
+                                    onChange={(e) => setEntireChain(e.target.value)}
+                                    autoComplete="entire-chain"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="md:col-span-2">
+                            <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Number of Stores You Own</h2>
+                                <div>
+                                    <input
+                                    id="storesuown"
+                                    name="storesuown"
+                                    type="text"
+                                    value={storesYouOwn}
+                                    placeholder='2'
+                                    onChange={(e) => setStoresYouOwn(e.target.value)}
+                                    autoComplete="stores-you-own"
+                                    className="w-[255px] rounded-md p-[5px] border-[#afaeae] placeholder:text-[#545454] focus:ring-1 focus:ring-inset focus:ring-indigo-600 md:text-[20px]"
+                                    />
+                                </div>
+                            </div>
+                            
+
+                    </div>
+                    <div className='flex justify-center mt-5'>
+                        <button type='submit' className='py-[12px] px-[30px] rounded-md text-white font-bold
+                        bg-[#f8931f] shadow-xl shadow-slate-400 text-[18px] transition duration-500'>CALCULATE</button>
+                    </div>
+                </form>     
+
+            </div>
+
+        </div>
+          {/* <-------------------------------------> */}
+        {/* <div className='flex gap-56 justify-center max-w-full pt-[100px]'>
         
             <div className='flex flex-col p-2 max-w-xl'> 
-            <h1 className='text-[40px] font-[700] text-[#222d35] ml-44 leading-[40px] text-center pb-14'>Contact Us</h1>
+                <h1 className='text-[40px] font-[700] text-[#222d35] ml-44 leading-[40px] text-center pb-14'>Contact Us</h1>
 
         
             </div> 
 
             <div>
-            <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-14'>Write to Us:</h1>
-            <div className="w-[557px] h-[555px] border-2 border-gray-700/10 rounded-lg p-6">
-                
-                <form onSubmit={handleSubmit}>   
-
-                    <div className="md:col-span-2 md:col-start-1">
-                        <div>
-                            <input
-                            id="yourName"
-                            name="yourName"
-                            type="text"
-                            value={yourName}
-                            placeholder='Your Name'
-                            onChange={(e) => setYourName(e.target.value)}
-                            autoComplete="first-name"
-                            // className="block w-full rounded-md py-3 text-[15px] font-[400] text-[#263238] placeholder:text-[#666666] focus:ring-1 focus:ring-indigo-800"
-                            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-sm md:leading-10"
-                            />
-                        </div>
-                        {yourNameError && (
-                            <p className="mt-2 text-sm text-start text-red-600">
-                            {yourNameError}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="md:col-span-2 mt-5">
-                        <div>
-                            <input
-                            id="email"
-                            name="email"
-                            type="text"
-                            value={email}
-                            placeholder='Email*'
-                            onChange={(e) => setEmail(e.target.value)}
-                            autoComplete="email"
-                            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
-                            />
-                        </div>
-                        {emailError && (
-                            <p className="mt-2 text-sm text-start text-red-600">
-                            {emailError}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="md:col-span-2 mt-5">
-                        <div>
-                            <input
-                            id="subject"
-                            name="subject"
-                            type="text"
-                            value={subject}
-                            placeholder='Subject'
-                            onChange={(e) => setSubject(e.target.value)}
-                            autoComplete="subject"
-                            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
-                            />
-                        </div>
-                        {subjectError && (
-                            <p className="mt-2 text-sm text-start text-red-600">
-                            {subjectError}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="md:col-span-2 mt-5">
-                        <div>
-                            <input
-                            id="message"
-                            name="message"
-                            type="text"
-                            value={message}
-                            placeholder='Message'
-                            onChange={(e) => setMessage(e.target.value)}
-                            autoComplete="message"
-                            className="block w-full rounded-md border-0 pt-3 pb-28 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                        {messageError && (
-                            <p className="mt-2 text-sm text-start text-red-600">
-                            {messageError}
-                            </p>
-                        )}
-                    </div>
+                <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-14'>Write to Us:</h1>
+                <div className="w-[557px] h-[555px] border-2 border-gray-700/10 rounded-lg p-6">
                     
-                    <div className='flex justify-center mt-5'>
-                        <button type='submit' className='py-4 px-[205px] rounded-md text-white font-[700]
-                        bg-[#282d47] hover:bg-[#0773B3] text-sm transition duration-500'>SUBMIT NOW</button>
-                    </div>
+                    <form onSubmit={handleSubmit}>   
 
-                </form>     
+                        <div className="md:col-span-2 md:col-start-1">
+                            <div>
+                                <input
+                                id="yourName"
+                                name="yourName"
+                                type="text"
+                                value={yourName}
+                                placeholder='Your Name'
+                                onChange={(e) => setYourName(e.target.value)}
+                                autoComplete="first-name"
+                                // className="block w-full rounded-md py-3 text-[15px] font-[400] text-[#263238] placeholder:text-[#666666] focus:ring-1 focus:ring-indigo-800"
+                                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-sm md:leading-10"
+                                />
+                            </div>
+                            {yourNameError && (
+                                <p className="mt-2 text-sm text-start text-red-600">
+                                {yourNameError}
+                                </p>
+                            )}
+                        </div>
 
+                        <div className="md:col-span-2 mt-5">
+                            <div>
+                                <input
+                                id="email"
+                                name="email"
+                                type="text"
+                                value={email}
+                                placeholder='Email*'
+                                onChange={(e) => setEmail(e.target.value)}
+                                autoComplete="email"
+                                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                />
+                            </div>
+                            {emailError && (
+                                <p className="mt-2 text-sm text-start text-red-600">
+                                {emailError}
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="md:col-span-2 mt-5">
+                            <div>
+                                <input
+                                id="subject"
+                                name="subject"
+                                type="text"
+                                value={subject}
+                                placeholder='Subject'
+                                onChange={(e) => setSubject(e.target.value)}
+                                autoComplete="subject"
+                                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                />
+                            </div>
+                            {subjectError && (
+                                <p className="mt-2 text-sm text-start text-red-600">
+                                {subjectError}
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="md:col-span-2 mt-5">
+                            <div>
+                                <input
+                                id="message"
+                                name="message"
+                                type="text"
+                                value={message}
+                                placeholder='Message'
+                                onChange={(e) => setMessage(e.target.value)}
+                                autoComplete="message"
+                                className="block w-full rounded-md border-0 pt-3 pb-28 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                            {messageError && (
+                                <p className="mt-2 text-sm text-start text-red-600">
+                                {messageError}
+                                </p>
+                            )}
+                        </div>
+                        
+                        <div className='flex justify-center mt-5'>
+                            <button type='submit' className='py-4 px-[205px] rounded-md text-white font-[700]
+                            bg-[#282d47] hover:bg-[#0773B3] text-sm transition duration-500'>SUBMIT NOW</button>
+                        </div>
+
+                    </form>     
+
+                </div>
             </div>
-            </div>
 
-        </div>
-          {/* <-------------------------------------> */}
+        </div> */}
+      {/* <-------------------------------------> */}
 
        <div className='flex justify-around bg-[#0773B3] items-center rounded-lg max-w-[1110px] mx-auto py-8 px-4 mt-10'>
 

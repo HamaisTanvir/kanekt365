@@ -13,6 +13,7 @@ import TableRow from '@mui/material/TableRow';
 
 const Pricing = () => {
 
+//  1 -------- >
 function createData(name, numberofstores, costpercall) {
     return { name, numberofstores, costpercall };
     }
@@ -23,7 +24,8 @@ function createData(name, numberofstores, costpercall) {
     createData('60-99', '$ 0.95'),
     createData('100+', '$ 0.90'),
     ];
-  
+
+//  2 -------- >
     const [SAT, setSAT] = useState('$24')
     const [AWR, setAWR] = useState('$18,000')
     const [onlineOrders, setOnlineOrders] = useState('')
@@ -49,24 +51,8 @@ function createData(name, numberofstores, costpercall) {
         }
         setAWR(inputValue);
       };
-
-  const [emailNews, setEmailNews] = useState('');
-  const [messageNews, setMessageNews] = useState('');
-  const [isErrorNews, setIsErrorNews] = useState(false);
-
-  const handleSubmitNews = (e) => {
-    e.preventDefault();
-    if (!emailNews) {
-      setMessageNews('Please enter your email');
-      setIsErrorNews(true);
-    } else {
-      setMessageNews('Successfully subscribed to the newsletter!');
-      setIsErrorNews(false);
-      setEmailNews('');
-    }
-  };
   
-
+//  1.1 -------- >
   const handleSubmit = (e) => {
       e.preventDefault();
       let valid = true;
@@ -112,6 +98,80 @@ function createData(name, numberofstores, costpercall) {
   
       console.log('Form submitted with:', { SAT });  //......... ???
     };
+
+//  3 -------- >
+    const [CCR, setCCR] = useState('$  0.00')
+    const [KR, setKR] = useState('$  1.02')
+    const [SM, setSM] = useState('2000')
+    const [CPW, setCPW] = useState('135')
+    const [CC, setCC] = useState('72.72')
+    const [CK, setCK] = useState('82')
+    const [ATC, setATC] = useState('$  27.95')
+    const [ATK, setATK] = useState('$  29.00')
+
+    const handleCCR = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('$')) {
+          inputValue = `$${inputValue.replace('$', '')}`;
+        }
+        setCCR(inputValue);
+      };
+
+      const handleKR = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('$')) {
+          inputValue = `$${inputValue.replace('$', '')}`;
+        }
+        setKR(inputValue);
+      };
+
+      const handleSM = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('')) {
+          inputValue = `${inputValue.replace('')}`;
+        }
+        setSM(inputValue);
+      };
+
+      const handleCPW = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('')) {
+          inputValue = `${inputValue.replace('')}`;
+        }
+        setCPW(inputValue);
+      };
+
+      const handleCC = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('')) {
+          inputValue = `${inputValue.replace('')}`;
+        }
+        setCC(inputValue);
+      };
+
+      const handleCK = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('')) {
+          inputValue = `${inputValue.replace('')}`;
+        }
+        setCK(inputValue);
+      };
+
+      const handleATC = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('$')) {
+          inputValue = `$${inputValue.replace('$', '')}`;
+        }
+        setATC(inputValue);
+      };
+
+      const handleATK = (e) => {
+        let inputValue = e.target.value;
+        if (!inputValue.startsWith('$')) {
+          inputValue = `$${inputValue.replace('$', '')}`;
+        }
+        setATK(inputValue);
+      };
 
   return (
 
@@ -388,7 +448,7 @@ function createData(name, numberofstores, costpercall) {
                     </div>
                     <div className='flex justify-center mt-5'>
                         <button type='submit' className='py-[12px] px-[30px] rounded-md text-white font-bold
-                        bg-[#f8931f] shadow-xl shadow-slate-400 text-[18px] transition duration-500'>CALCULATE</button>
+                        bg-[#f8931f] shadow-lg shadow-slate-400 text-[18px] transition duration-500'>CALCULATE</button>
                     </div>
                 </form>     
 
@@ -396,144 +456,176 @@ function createData(name, numberofstores, costpercall) {
 
         </div>
           {/* <-------------------------------------> */}
-        {/* <div className='flex gap-56 justify-center max-w-full pt-[100px]'>
-        
-            <div className='flex flex-col p-2 max-w-xl'> 
-                <h1 className='text-[40px] font-[700] text-[#222d35] ml-44 leading-[40px] text-center pb-14'>Contact Us</h1>
 
+        <div className='pt-[100px]'>
         
-            </div> 
-
             <div>
-                <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-14'>Write to Us:</h1>
-                <div className="w-[557px] h-[555px] border-2 border-gray-700/10 rounded-lg p-6">
-                    
-                    <form onSubmit={handleSubmit}>   
+                <h2 className='text-[15px] font-[600] text-[#0773B3] text-center leading-[26px] mb-1'>
+                    ENTER YOUR OWN AND SEE THE CONVERSIONS
+                </h2>
+                <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-12'>
+                    CONVERSIONS CALCULATOR
+                </h1>
 
-                        <div className="md:col-span-2 md:col-start-1">
-                            <div>
-                                <input
-                                id="yourName"
-                                name="yourName"
-                                type="text"
-                                value={yourName}
-                                placeholder='Your Name'
-                                onChange={(e) => setYourName(e.target.value)}
-                                autoComplete="first-name"
-                                // className="block w-full rounded-md py-3 text-[15px] font-[400] text-[#263238] placeholder:text-[#666666] focus:ring-1 focus:ring-indigo-800"
-                                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-sm md:leading-10"
-                                />
-                            </div>
-                            {yourNameError && (
-                                <p className="mt-2 text-sm text-start text-red-600">
-                                {yourNameError}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="md:col-span-2 mt-5">
-                            <div>
-                                <input
-                                id="email"
-                                name="email"
-                                type="text"
-                                value={email}
-                                placeholder='Email*'
-                                onChange={(e) => setEmail(e.target.value)}
-                                autoComplete="email"
-                                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
-                                />
-                            </div>
-                            {emailError && (
-                                <p className="mt-2 text-sm text-start text-red-600">
-                                {emailError}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="md:col-span-2 mt-5">
-                            <div>
-                                <input
-                                id="subject"
-                                name="subject"
-                                type="text"
-                                value={subject}
-                                placeholder='Subject'
-                                onChange={(e) => setSubject(e.target.value)}
-                                autoComplete="subject"
-                                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
-                                />
-                            </div>
-                            {subjectError && (
-                                <p className="mt-2 text-sm text-start text-red-600">
-                                {subjectError}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="md:col-span-2 mt-5">
-                            <div>
-                                <input
-                                id="message"
-                                name="message"
-                                type="text"
-                                value={message}
-                                placeholder='Message'
-                                onChange={(e) => setMessage(e.target.value)}
-                                autoComplete="message"
-                                className="block w-full rounded-md border-0 pt-3 pb-28 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                            </div>
-                            {messageError && (
-                                <p className="mt-2 text-sm text-start text-red-600">
-                                {messageError}
-                                </p>
-                            )}
-                        </div>
-                        
-                        <div className='flex justify-center mt-5'>
-                            <button type='submit' className='py-4 px-[205px] rounded-md text-white font-[700]
-                            bg-[#282d47] hover:bg-[#0773B3] text-sm transition duration-500'>SUBMIT NOW</button>
-                        </div>
-
-                    </form>     
-
+                <div className='max-w-6xl space-y-4 gap-y-10 mx-auto pl-2 pr-4 pb-14'>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        Choosing a call center for your Quick Service Restaurant (QSR) is about finding the one that offers the most value and increases profitability. While rates are important, metrics like higher Average Ticket and Conversion Rates can significantly impact your revenue.
+                    </p>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        Imagine you have 2,000 locations. Call Center #1 offers free services, while Call Center #2 offers more effective services for $1.02 per transaction. Call center #2 increases upsells, average ticket sizes, and conversion rates. The financial benefit can be as much as $34M, even with a per-transaction fee.
+                    </p>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        For that reason, we encourage you to run your real numbers through our calculator to see the ROI. Be sure to focus on both cost and potential revenue growth. A call center with a higher fee may be a more financially responsible decision. Try it out.
+                    </p>
                 </div>
+
+                <div className='max-w-6xl shadow-[-1px_1px_10px_5px_rgba(148,163,184,0.6)] mx-auto rounded-lg p-14'>
+                    <form onSubmit={handleSubmit}> 
+                            <div className="gap-x-6 gap-y-4 grid grid-cols-1 md:grid-cols-4">
+                            
+                                <div className="md:col-span-2 md:col-start-1">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Call Center Rate:</h2>
+                                    <div>
+                                        <input
+                                        id="ccrate"
+                                        name="ccrate"
+                                        type="text"
+                                        value={CCR}
+                                        placeholder=''
+                                        onChange={handleCCR}
+                                        autoComplete="cc-rate"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-sm md:leading-10"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Kanekt Rate:</h2>
+                                    <div>
+                                        <input
+                                        id="krate"
+                                        name="krate"
+                                        type="text"
+                                        value={KR}
+                                        placeholder=''
+                                        onChange={handleKR}
+                                        autoComplete="kanekt-rate"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Number of Stores:</h2>
+                                    <div>
+                                        <input
+                                        id="#stores"
+                                        name="#stores"
+                                        type="text"
+                                        value={SM}
+                                        placeholder=''
+                                        onChange={handleSM}
+                                        autoComplete="no-of-stores"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Average Calls per Week:</h2>
+                                    <div>
+                                        <input
+                                        id="callsperweek"
+                                        name="callsperweek"
+                                        type="text"
+                                        value={CPW}
+                                        placeholder=''
+                                        onChange={handleCPW}
+                                        autoComplete="calls-per-week"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Conversion Calls Center:</h2>
+                                    <div className= 'relative'>
+                                        <input
+                                        id="conversionscall"
+                                        name="conversionscall"
+                                        type="text"
+                                        value={CC}
+                                        placeholder=''
+                                        onChange={handleCC}
+                                        autoComplete="conversions-call"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-right ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                        <span className="absolute inset-y-0 right-2 flex items-center text-gray-500">%</span>
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Conversions Kanekt:</h2>
+                                    <div className= 'relative'>
+                                        <input
+                                        id="conversionkanekt"
+                                        name="conversionkanekt"
+                                        type="text"
+                                        value={CK}
+                                        placeholder=''
+                                        onChange={handleCK}
+                                        autoComplete="conversion-kanekt"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                        <span className="absolute inset-y-0 right-2 flex items-center text-gray-500">%</span>
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Average Ticket for Call Center:</h2>
+                                    <div>
+                                        <input
+                                        id="averageticket"
+                                        name="averageticket"
+                                        type="text"
+                                        value={ATC}
+                                        placeholder=''
+                                        onChange={handleATC}
+                                        autoComplete="average-ticket"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="md:col-span-2">
+                                <h2 className= 'text-[17px] font-[400] text-[#545454] mb-4'>Average Ticket for Kanekt:</h2>
+                                    <div>
+                                        <input
+                                        id="ticketkanekt"
+                                        name="ticketkanekt"
+                                        type="text"
+                                        value={ATK}
+                                        placeholder=''
+                                        onChange={handleATK}
+                                        autoComplete="kanekt-ticket"
+                                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-10"
+                                        />
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                            <div className='flex justify-center mt-10'>
+                                <button type='submit' className='py-[14px] px-[62px] rounded-md text-white font-bold
+                                bg-[#f8931f] shadow-lg shadow-slate-400 text-[18px] transition duration-500'>CALCULATE</button>
+                            </div>
+                    </form>     
+                </div> 
             </div>
 
-        </div> */}
+        </div>
       {/* <-------------------------------------> */}
 
-       <div className='flex justify-around bg-[#0773B3] items-center rounded-lg max-w-[1110px] mx-auto py-8 px-4 mt-10'>
-
-          <div className='text-[27px] font-[700] text-[#fff] w-[430px] leading-relaxed'>
-            <h2>Stay up to date with our news, ideas and updates</h2>
-          </div>
-
-          <div>
-            <form onSubmit={handleSubmitNews} className="relative flex items-center">
-              <input
-                type="emailNews"
-                placeholder="Enter your email"
-                value={emailNews}
-                onChange={(e) => setEmailNews(e.target.value)}
-                className="w-[550px] p-4 ml-2 md:ml-0 rounded border border-gray-300 text-gray-100 flex-1"
-                
-              />
-            <button
-              type="submit"
-              className="absolute w-44 right-0 top-0 bottom-0 text-white p-3 rounded rounded-tl-none rounded-bl-none flex items-center justify-center bg-[#000]">
-              <h2>SUBSCRIBE</h2>
-            </button>
-            </form>
-            {messageNews && (
-              <p className={`mt-1 ml-2 md:ml-0 ${isErrorNews ? 'text-red-500' : 'text-green-500'}`}>
-                {messageNews}
-              </p>
-            )}
-          </div>
-          
-       </div>
+     
             {/* <-------------------------------------> */}
        
     </div>

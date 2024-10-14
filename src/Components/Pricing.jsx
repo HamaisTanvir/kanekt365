@@ -1,6 +1,7 @@
 import React from 'react'
 import pricingBg from '../assets/pricingBg.jpg'
 import pricingImg from '../assets/pricingImg.jpg'
+import pricingLowImg from '../assets/pricingLowImg.jpg'
 import { Breadcrumbs } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
@@ -625,6 +626,60 @@ function createData(name, numberofstores, costpercall) {
         </div>
       {/* <-------------------------------------> */}
 
+        <div className='pt-[60px]'>
+                <div className='flex gap-12 justify-center'>
+                    
+                    <div className='flex flex-col p-2 max-w-[600px]'> 
+                            <h2 className='text-[15px] font-[600] text-[#0773B3] leading-[26px] mb-1'>
+                                Beyond the Numbers
+                            </h2>
+                            <h1 className='text-[40px] font-[700] uppercase text-[#222d35] leading-[40px] mb-6'>
+                                The Added Value of Kanekt 365 QSR Call Center Services
+                            </h1>
+                            <p className='text-[15px] font-[400] leading-[26px] text-[#666] pt-6'>
+                                Some key benefits can’t be measured int terms of money, yet they are crucial to business growth. Our clients often report notable improvements in areas that, while hard to quantify, have a significant impact on their operations and brand reputation.
+                            </p>
+
+                            
+                    </div> 
+
+                    <div className='w-[502px] h-[215px]'>
+                        <img src={pricingLowImg} className='rounded-lg' alt="contact-Us"/> 
+                    </div>
+                </div>
+
+
+                <div className='max-w-6xl space-y-4 mx-auto pl-2 pr-4 pt-10'>
+                    <h2 className='text-[15px] font-[700] text-[#666] leading-[4px]'>
+                        1. Superior Customer Experience
+                    </h2>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        Our call center delivers professional and friendly customer interactions, helping to build brand loyalty and encourage repeat business. This personal touch can transform a one-time customer into a loyal patron.
+                    </p>
+                    <h2 className='text-[15px] font-[700] text-[#666] leading-[4px] pt-4'>
+                        2. Increased Employee Productivity
+                    </h2>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        By outsourcing calls, your staff can focus on their core tasks, leading to increased productivity. This allows your team to work more efficiently and concentrate on what they do best.
+                    </p>
+                    <h2 className='text-[15px] font-[700] text-[#666] leading-[4px] pt-4'>
+                        3. Improved Employee Morale
+                    </h2>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        When employees aren’t overloaded with calls, they can focus on their primary roles, resulting in a more positive work environment. This makes their day-to-day tasks more manageable and enjoyable, fostering a positive work environment from which everyone benefits.
+                    </p>
+                    <h2 className='text-[15px] font-[700] text-[#666] leading-[4px] pt-4'>
+                        4. Reduced Employee Turnover
+                    </h2>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666]'>
+                        A call center can reduce turnover rates by improving employee morale and job satisfaction. This helps you retain experienced staff and lower the costs of hiring and training new employees.
+                    </p>
+                    <p className='text-[15px] font-[400] leading-[26px] text-[#666] pt-6'>
+                        Although it’s hard to assign a specific monetary value to these benefits, their positive impact on your restaurant is undeniable.
+                    </p>
+                </div>
+
+        </div>
      
             {/* <-------------------------------------> */}
        

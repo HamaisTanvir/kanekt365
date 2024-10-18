@@ -30,7 +30,7 @@ const App = () => {
         <Route path='/bitrixsignupform' element={<BitrixSignupForm />}/>
         <Route path='/contact-us' element={<ContactUs />}/>
         <Route path='/pricing' element={<Pricing />}/>
-        <Route path='/our-services' element={<Services />}/>
+        <Route path='/our-service' element={<Services />}/>
         <Route path='/service/:slugS' element={<ServicesInner sData={cData}/>}/>
 
       </Routes>

@@ -245,8 +245,8 @@ function createData(name, numberofstores, costpercall) {
                 </h1>
              
 
-                <div className='mt-1 flex items-center'>
-                  <Link to='/' className='flex items-center py-[18px] px-[40px] border-none rounded-md text-white text-sm font-semibold
+                <div className='mt-4 flex items-center'>
+                  <Link to='/' className='py-[18px] px-[40px] border-none rounded-md text-white text-sm font-semibold
                     bg-[#0773B3] hover:bg-[#282D47] transition duration-500'>
                       FREE TRIAL - NO RISK
                   </Link>
@@ -306,7 +306,7 @@ function createData(name, numberofstores, costpercall) {
                 </h1>
 
             <div className='pt-6 flex'>
-                <Link to='/' className='flex items-center py-[18px] px-[40px] border-none rounded-md text-white text-sm font-semibold
+                <Link to='/' className='py-[18px] px-[40px] border-none rounded-md text-white text-sm font-semibold
                 bg-[#0773B3] hover:bg-[#282D47] transition duration-500'>
                     FREE TRIAL - NO RISK
                 </Link>
@@ -617,7 +617,9 @@ function createData(name, numberofstores, costpercall) {
                             </div>
                             <div className='flex justify-center mt-10'>
                                 <button type='submit' className='py-[14px] px-[62px] rounded-md text-white font-bold
-                                bg-[#f8931f] shadow-lg shadow-slate-400 text-[18px] transition duration-500'>CALCULATE</button>
+                                bg-[#f8931f] shadow-lg shadow-slate-400 text-[18px] transition duration-500'>
+                                    CALCULATE
+                                </button>
                             </div>
                     </form>     
                 </div> 

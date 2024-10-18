@@ -40,7 +40,7 @@ const RestaurantAutomation = () => {
             ))}
 
           </Slider>
-      </div>
+        </div>
       
 
     </div>

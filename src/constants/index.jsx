@@ -26,6 +26,20 @@ import prism from '../assets/prism.png'
 import linga from '../assets/linga.png'
 import xenial from '../assets/xenial.png'
 import ovvi from '../assets/ovvi.png'
+import taost from '../assets/toast.webp'
+import heartLand from '../assets/heartLand.png'
+import clover from '../assets/clover.png'
+import square from '../assets/square.png'
+import ncr from '../assets/ncr.png'
+import maitre from '../assets/maitre.png'
+import ncrSilver from '../assets/ncrSilver.png'
+import upServe from '../assets/Upserve.png'
+import dinerWare from '../assets/dinerWare.png'
+import digitalDining from '../assets/digitalDining.png'
+import salido from '../assets/salido.png'
+import cake from '../assets/cake.png'
+import mobileBytes from '../assets/mobileBytes.png'
+                              
 
 import summerOrdering from '../assets/summerOrdering.png'
 import kanektBlog from '../assets/kanektBlog.png'
@@ -224,6 +238,33 @@ export const logos =[
   `${linga}`,
   `${xenial}`,
   `${ovvi}`,
+]
+
+export const logosPOS =[
+  `${parSale}`,
+  `${revel}`,
+  `${taost}`,
+  `${spotOn}`,
+  `${heartLand}`,
+  `${clover}`,
+  `${microsRes}`,
+  `${microsSimphony}`,
+  `${square}`,
+  `${ncr}`,
+  `${focus}`,
+  `${speedLine}`,
+  `${maitre}`,
+  `${ncrSilver}`,
+  `${upServe}`,
+  `${dinerWare}`,
+  `${digitalDining}`,
+  `${foodTec}`,
+  `${salido}`,
+  `${cake}`,
+  `${mobileBytes}`,
+  `${hungerRush}`,
+  `${ovvi}`,
+  `${prism}`,
 ]
 
 export const logosSettings = {
@@ -1080,7 +1121,6 @@ m267 -216 c168 -23 312 -91 433 -205 251 -237 318 -594 170 -901 -98 -202
 </g>
   </svg>
 )
-
 
 export const ciData = [
   {id: 1, title: 'Phone', text: '(833) 346-3446', 

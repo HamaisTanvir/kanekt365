@@ -13,7 +13,7 @@ const kanektPagesReducer = (state = initialState, action) => {
     case FETCH_PAGES_SUCCESS:
       return { loading: false, kanektPages: action.payload, error: '' };
     case FETCH_PAGES_FAILURE:
-      return { loading: false, kanektPages: [], error: action.error };
+      return { loading: false, kanektPages: [], error:action.message || "Something went wrong"  };
     default:
       return state;
   }

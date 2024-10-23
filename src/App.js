@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './Components/Navbar';
+// import Navbar from './Components/Navbar';
 import TopBar from './Components/TopBar';
 import Homepage from './Components/Homepage';
 import BitrixSignupForm from './Components/BitrixSignupForm';
@@ -20,7 +20,7 @@ const App = () => {
   return (
     <Router>
         <TopBar />
-        <Navbar />
+        {/* <Navbar /> */}
         <Copy />
       <Routes>
         <Route path='/' element={<Homepage />}/>

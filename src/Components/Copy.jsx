@@ -43,10 +43,10 @@ const Copy = () => {
 
   return (
     <div>
-        {/* {loading && <p>Loading...</p>}
-        {error && <p>{error}</p>} */}
+        {loading && <p>Loading...</p>}
+        {error && <p>{error.message}</p>}
     
-        <nav className={`sticky top-0 z-50 py-3 border border-b-gray-300 bg-[purple] ${shadow ? 'shadow-lg' : ''}`}>
+        <nav className={`sticky top-0 z-50 py-3 border border-b-gray-300 bg-white ${shadow ? 'shadow-lg' : ''}`}>
             <div className="container px-4 mx-auto relative text-sm">
 
                 <div className="flex justify-between items-center">

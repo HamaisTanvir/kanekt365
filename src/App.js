@@ -14,12 +14,14 @@ import ContactUs from './Components/ContactUs';
 import Pricing from './Components/Pricing'
 import Services from './Components/Services'
 import ServicesInner from './Components/ServicesInner'
+import Copy from './Components/Copy'
 
 const App = () => {
   return (
     <Router>
         <TopBar />
         <Navbar />
+        <Copy />
       <Routes>
         <Route path='/' element={<Homepage />}/>
         <Route path='/blogs' element={<BlogsMain />}/>

@@ -5,18 +5,34 @@ import kanekt365Logo from '../assets/kanekt365Logo.png';
 import {X, Menu, Search} from 'lucide-react';
 import {navItems} from '../constants/index.jsx'
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 import LazyLoad from 'react-lazyload';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchKanektPages } from '../redux/actions.js'
 
-const Copy = () => {
-    const dispatch = useDispatch();
-    const { loading, kanektPages, error } = useSelector(state => state);
-  
-    useEffect(() => {
-      dispatch(fetchKanektPages());
-    }, [dispatch]);
+const Navbar = () => {
+    const baseUrl = 'https://test.kanekt365.com/api/pages/all';
+    const [kanektData, setKanektData] = useState([]);
+
+    useEffect(()=>{
+        axios.get(baseUrl)
+        .then(res => {
+            setKanektData(res.data);
+            const data = res.data
+            console.log(data);
+        })
+        // fetch('https://kanekt365.com/wp-json/wp/v2/pages?status=publish')
+        // .then(res => res.json())
+        // .then(data => {
+        //     setKanektData(data);
+        // })
+
+        .catch(err => console.error('errorr:', err));
+    }, []);
+
+    // const hiddenTitles = [
+    //     "Demo",
+    //     "Sign Up",
+    //     "Blog",
+    //   ];
 
     const [mobileIconOpen, setMobileIconOpen] = useState(false);
 
@@ -42,10 +58,6 @@ const Copy = () => {
       }, []);
 
   return (
-    <div>
-        {loading && <p>Loading...</p>}
-        {error && <p>{error.message}</p>}
-    
         <nav className={`sticky top-0 z-50 py-3 border border-b-gray-300 bg-white ${shadow ? 'shadow-lg' : ''}`}>
             <div className="container px-4 mx-auto relative text-sm">
 
@@ -59,14 +71,14 @@ const Copy = () => {
                     </div>
         
                         <ul className="hidden md:flex ml-14 space-x-8">
-                        {kanektPages && kanektPages.map(page =>(
-                            page.isMenu && (
+                        {kanektData.map((data) =>(
+                            data.isMenu && (
                             <LazyLoad height={200} offset={100}>
-                                <li key={page.id}>
+                                <li key={data.id}>
                                     {/* <Link to={data.slug}>{data.title.rendered}</Link> */}
                                     <h2>
-                                      <Link to={page.slug} className='text-[14px] font-[700] uppercase tracking-[.5px] hover:text-[#0773b3] focus:text-[#0773b3]'>
-                                        {page.title}
+                                      <Link to={data.slug} className='text-[14px] font-[700] uppercase tracking-[.5px] hover:text-[#0773b3] focus:text-[#0773b3]'>
+                                        {data.title}
                                       </Link>
                                     </h2>
                                 </li>
@@ -118,8 +130,8 @@ const Copy = () => {
                 
             </div>
         </nav>
-    </div>
+
     )
 }
 
-export default Copy
+export default Navbar

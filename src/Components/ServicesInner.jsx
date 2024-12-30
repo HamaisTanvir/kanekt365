@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 import AiOrderingSolutions from './AiOrderingSolutions';
 import POSIntegrations from './POSIntegrations';
+import SpanishLanguageOrdering from './SpanishLanguageOrdering';
 
 const ServicesInner = ({sData}) => {
 
@@ -26,6 +27,10 @@ const ServicesInner = ({sData}) => {
 
         {slugS === 'pos-integrations' && (
           <POSIntegrations />
+        )}
+
+        {slugS === 'spanish-language-ordering' && (
+          <SpanishLanguageOrdering />
         )}
           
           {/* <div className='md:block md:max-w-6xl mx-auto items-center pl-8 bg-orange-500'>

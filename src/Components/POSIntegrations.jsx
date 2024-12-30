@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '@mui/material';
 import { Divider } from '@mui/material';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { logosPOS } from '../constants'
+import { logosPOSb } from '../constants'
 
 const POSIntegrations = () => {
 
@@ -146,21 +148,58 @@ const POSIntegrations = () => {
         </div>     
             {/* <-------------------------------------> */}
 
-      <div className='pt-6 max-w-6xl mx-auto'>
-          <h1 className='text-[36px] font-[700] text-[#000] text-center leading-[46px] pb-4'>
+      <div className='mt-10 flex items-center justify-center'>
+        <h2>
+          <Link to='/' className='flex items-center py-[14px] px-[12px] border-none rounded-md text-white text-[14px] font-semibold
+          bg-[#0773B3] hover:bg-[#282D47] transition duration-500'>
+            NO RISK FREE TRIAL
+          </Link>
+        </h2>
+      </div>
+      <h2 className='mt-12 text-[15px] font-[600] text-[#0773B3] text-center leading-[26px] mb-1'>
+          BRANDS
+      </h2>
+
+      <h1 className='text-[40px] font-[700] text-[#222d35] leading-[40px] text-center pb-14'>
+          AVAILABLE FOR 100+ LOCATIONS
+      </h1>
+
+         
+      <div className='grid grid-cols-1 md:grid-cols-6 max-w-6xl gap-y-3 px-2 mx-auto mb-12'>
+          {logosPOSb.map((logo, index) =>(
+            <div key={index} className='flex justify-center'>
+              <img 
+                style={{border:'solid 1px #DDDDDD'}}
+                key={index}
+                src={logo}
+                alt={`Logo ${index + 1}`}
+                className="h-[123px] w-[176px] object-contain bg-white shadow-sm border-2 "
+              />
+            </div>
+          ))}
+      </div>
+      
+      <Divider sx={style} />
+
+      <div className='mt-6 max-w-6xl mx-auto'>
+          <h1 className='text-[36px] font-[700] text-[#000] text-center leading-[46px] pb-3'>
             Contact us today.
           </h1>
           <p className='text-[15px] font-[400] leading-[26px] text-center text-[#666]'>
-            Our team can help you determine which level of AI makes the most sense for you and your customers.
+            Don’t see your POS system? Contact us.
           </p>
       </div>
 
-      <div className='mt-5 flex items-center justify-center'>
-        <Link to='/' className='flex items-center py-[16px] px-[14px] border-none rounded-md text-white text-sm font-semibold
+      <div className='mt-4 flex items-center justify-center'>
+        <h2>
+          <Link to='/' className='flex items-center py-[14px] px-[12px] border-none rounded-md text-white text-[14px] font-semibold
           bg-[#0773B3] hover:bg-[#282D47] transition duration-500'>
-            NO RISK FREE TRIAL
-        </Link>
+            FREE TRIAL - NO RISK
+          </Link>
+        </h2>
       </div>
+
+
             {/* <-------------------------------------> */}
           
 
@@ -168,17 +207,35 @@ const POSIntegrations = () => {
             {/* <-------------------------------------> */}
 
       <Divider sx={style} />      
-      <div className='max-w-6xl mx-auto bg-[#f6f6f6] rounded-xl py-10 px-8 mt-10'>  
-          <div className='flex space-x-4 items-center'>
-              <a href="https://kanekt365.com/service/pos-integrations/" target='blank'>
-              <KeyboardArrowLeftIcon sx={{backgroundColor: '#0773b3', color: 'white', borderRadius: '30px', 
-              width: '60px', height: '60px', p: '10px', transition: '0.3s ease-out',
-              '&:hover': {
-                  backgroundColor: '#282D47',
+      <div className='max-w-6xl mx-auto gap-4 bg-[#f6f6f6] rounded-xl py-10 px-8 mt-10'>  
+          <div className='flex justify-between'>
+            <div className='flex space-x-4 items-center'>
+              <a href="https://kanekt365.com/service/spanish-language-ordering/" target='blank'>
+                <KeyboardArrowLeftIcon sx={{backgroundColor: '#0773b3', color: 'white', borderRadius: '30px', 
+                width: '60px', height: '60px', p: '10px', transition: '0.3s ease-out',
+                '&:hover': {
+                    backgroundColor: '#282D47',
+                  },
+                  }} />
+                </a>
+              <a href="https://kanekt365.com/service/spanish-language-ordering/" target='blank'>
+                  <h1 className='text-[24px] font-[700] leading-[26px] text-[#282d47]'>Spanish Language Ordering</h1> 
+              </a>
+            </div>
+
+            <div className='flex space-x-4 items-center'>
+              <a href="https://kanekt365.com/service/ai-ordering-solutions/" target='blank'>
+                  <h1 className='text-[24px] font-[700] leading-[26px] text-[#282d47]'>AI Ordering Solutions</h1> 
+              </a>
+              <a href="https://kanekt365.com/service/ai-ordering-solutions/" target='blank'>
+                <KeyboardArrowRightIcon sx={{backgroundColor: '#0773b3', color: 'white', borderRadius: '30px', 
+                width: '60px', height: '60px', p: '10px', transition: '0.3s ease-out',
+                '&:hover': {
+                  backgroundColor: '#282D47', 
                 },
-                }} /> </a>
-              <a href="https://kanekt365.com/service/pos-integrations/" target='blank'>
-                  <h1 className='text-[24px] font-[700] leading-[26px] text-[#282d47]'>POS Integrations</h1> </a>
+              }} /> 
+              </a>
+            </div>
           </div>  
           
       </div>

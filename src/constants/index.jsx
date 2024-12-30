@@ -39,6 +39,25 @@ import digitalDining from '../assets/digitalDining.png'
 import salido from '../assets/salido.png'
 import cake from '../assets/cake.png'
 import mobileBytes from '../assets/mobileBytes.png'
+import pixelPoint from '../assets/pixelPoint.png'
+import auphan from '../assets/auphan.png'
+import onePos from '../assets/onePOS.png'
+import edgerServ from '../assets/edgerServ.png'
+import talech from '../assets/talech.png'
+import northStar from '../assets/northStar.png'
+import orderCounter from '../assets/orderCounter.png'
+import foodics from '../assets/foodics.png'
+import itabPos from '../assets/itabPos.png'
+import posIst from '../assets/posIst.png'
+import sunamiPos from '../assets/sunamiPos.png'
+import union from '../assets/union.png'
+import snappy from '../assets/snappy.png'
+import soft from '../assets/soft.png'
+import superMenu from '../assets/superMenu.png'
+import emaginePos from '../assets/emaginePos.png'
+import paradisePos from '../assets/paradisePos.png'
+import tid3 from '../assets/tid3.png'
+import rbbtTech from '../assets/rbbtTech.png'
                               
 
 import summerOrdering from '../assets/summerOrdering.png'
@@ -265,6 +284,32 @@ export const logosPOS =[
   `${hungerRush}`,
   `${ovvi}`,
   `${prism}`,
+]
+
+export const logosPOSb =[
+  `${pixelPoint}`,
+  `${auphan}`,
+  `${linga}`,
+  `${onePos}`,
+  `${edgerServ}`,
+  `${talech}`,
+  `${rezku}`,
+  `${northStar}`,
+  `${orderCounter}`,
+  `${foodics}`,
+  `${itabPos}`,
+  `${posIst}`,
+  `${sunamiPos}`,
+  `${union}`,
+  `${snappy}`,
+  `${soft}`,
+  `${superMenu}`,
+  `${emaginePos}`,
+  `${paradisePos}`,
+  `${xenial}`,
+  `${tid3}`,
+  `${ovvi}`,
+  `${rbbtTech}`,
 ]
 
 export const logosSettings = {

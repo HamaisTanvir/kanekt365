@@ -9,6 +9,7 @@ export const fetchKanektPages = () => {
     dispatch({ type: FETCH_PAGES_REQUEST });
     try {
       const response = await axios.get('https://test.kanekt365.com/api/pages/all');
+      // console.log('Fetched Data:', response.data);
       dispatch({ type: FETCH_PAGES_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({ type: FETCH_PAGES_FAILURE, error });

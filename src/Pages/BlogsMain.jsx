@@ -23,8 +23,8 @@ const BlogsMain = () => {
         .then(res => {
             setKanektBlogData(res.data);
             setLoading(false);
-            // const data = res.data
-            // console.log(data);
+            const data = res.data
+            console.log(data);
         })
         // .catch(err => console.error('error:', err));
         .catch(err => {

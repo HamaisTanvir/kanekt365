@@ -30,10 +30,10 @@ const App = () => {
         {isAuthenticated && < TopBar />}
         {isAuthenticated && <Navbar />}
       <Routes>
-      <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
+        <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
       
       {/* ........Protected Routes........ */}
-      <Route path="/" element={<ProtectedRoute><Homepage /></ProtectedRoute>} />
+        <Route path="/" element={<ProtectedRoute><Homepage /></ProtectedRoute>} />
         <Route path="/blogs" element={<ProtectedRoute><BlogsMain /></ProtectedRoute>} />
         <Route path="/blogs/:slug" element={<ProtectedRoute><BlogsInner /></ProtectedRoute>} />
         <Route path="/kanekt-resources" element={<ProtectedRoute><EBooksMain /></ProtectedRoute>} />
